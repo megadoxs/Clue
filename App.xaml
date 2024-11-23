@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:Clue"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <DataTemplate x:Key="ClueCard">
+            <Border BorderBrush="Black" BorderThickness="10">
+                <Image Source="{Binding image}"></Image>
+            </Border>
+        </DataTemplate>
     </Application.Resources>
 </Application>
