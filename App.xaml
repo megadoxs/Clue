@@ -6,7 +6,7 @@
     <Application.Resources>
         <DataTemplate x:Key="ClueCard">
             <Border BorderBrush="Black" BorderThickness="10">
-                <Image Source="{Binding image}"></Image>
+                <Image Source="{Binding image}" Width="100"></Image>
             </Border>
         </DataTemplate>
     </Application.Resources>

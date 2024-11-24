@@ -24,6 +24,7 @@ namespace Clue
 
         public enum Type
         {
+            None,
             Character,
             Weapon,
             Location

@@ -23,8 +23,16 @@ namespace Clue
     public partial class MainWindow : Window
     {
         public ObservableCollection<Card> UserCards { get; set; } = new ObservableCollection<Card>();
+        public ObservableCollection<Card> UserCharacters { get; set; } = new ObservableCollection<Card>();
+        public ObservableCollection<Card> UserLocations { get; set; } = new ObservableCollection<Card>();
+        public ObservableCollection<Card> UserWeapons { get; set; } = new ObservableCollection<Card>();
         public ObservableCollection<Card> AvailableCards { get; } = new ObservableCollection<Card>();
         public ObservableCollection<Card> Answers { get; }
+
+        public const int Characters = 6;
+        public const int Weapons = 6;
+        public const int Locations = 9;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -60,7 +68,84 @@ namespace Clue
             var random = new Random();
             Answers = new ObservableCollection<Card>(AvailableCards.GroupBy(card => card.type).Select(group => group.ElementAt(random.Next(group.Count()))).ToList());
 
+            for (int i = UserCharacters.Count; i < Characters; i++)
+            {
+                UserCharacters.Add(new Card("Empty", Card.CardsBack, Card.Type.None));
+            }
+
+            for (int i = UserLocations.Count; i < Locations; i++)
+            {
+                UserLocations.Add(new Card("Empty", Card.CardsBack, Card.Type.None));
+            }
+
+            for (int i = UserWeapons.Count; i < Weapons; i++)
+            {
+                UserWeapons.Add(new Card("Empty", Card.CardsBack, Card.Type.None));
+            }
+
+            // here for testing purposes
+            //AddCard(AvailableCards[0]);
+            //AddCard(AvailableCards[1]);
+            //AddCard(AvailableCards[2]);
+            //AddCard(AvailableCards[3]);
+            //AddCard(AvailableCards[4]);
+            //AddCard(AvailableCards[5]);
+
             DataContext = this;
+        }
+
+        public void AddCard(Card card)
+        {
+            // shouldn't be needed, but here just in case to make sur no duplicate can be added
+            if (UserCards.Contains(card))
+                return;
+
+            UserCards.Add(card);
+
+            switch (card.type)
+            {
+                case Card.Type.Character:
+                    UserCharacters.Clear();
+                    foreach (Card OwnedCard in UserCards)
+                    {
+                        if (OwnedCard.type.Equals(card.type))
+                            UserCharacters.Add(OwnedCard);
+                    }
+                    for (int i = UserCharacters.Count; i < Characters; i++)
+                    {
+                        UserCharacters.Add(new Card("Empty", Card.CardsBack, Card.Type.None));
+                    }
+                    break;
+                case Card.Type.Location:
+                    UserLocations.Clear();
+                    foreach (Card OwnedCard in UserCards)
+                    {
+                        if (OwnedCard.type.Equals(card.type))
+                            UserLocations.Add(OwnedCard);
+                    }
+                    for (int i = UserLocations.Count; i < Locations; i++)
+                    {
+                        UserLocations.Add(new Card("Empty", Card.CardsBack, Card.Type.None));
+                    }
+                    break;
+                case Card.Type.Weapon:
+                    UserWeapons.Clear();
+                    foreach (Card OwnedCard in UserCards)
+                    {
+                        if (OwnedCard.type.Equals(card.type))
+                            UserWeapons.Add(OwnedCard);
+                    }
+                    for (int i = UserWeapons.Count; i < Weapons; i++)
+                    {
+                        UserWeapons.Add(new Card("Empty", Card.CardsBack, Card.Type.None));
+                    }
+                    break;
+            }
+        }
+
+        private void OpenInventory(object sender, MouseButtonEventArgs e)
+        {
+            Inventory.Visibility = Visibility.Visible;
         }
     }
 }

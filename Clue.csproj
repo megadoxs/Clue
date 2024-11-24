@@ -161,5 +161,11 @@
   <ItemGroup>
     <Resource Include="Images\Cards\Weapons\wrench.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Bag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bibliography.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

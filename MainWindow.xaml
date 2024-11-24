@@ -5,14 +5,70 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clue"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"
+        WindowState="Maximized"
+    >
     <Grid>
-        <ItemsControl ItemsSource="{Binding Answers}" ItemTemplate="{StaticResource ClueCard}">
-           <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-        </ItemsControl>
+        <!--User Inventory Display-->
+        <Grid x:Name="Inventory"  Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0">
+                <TextBlock>Characters</TextBlock>
+                <ItemsControl ItemsSource="{Binding UserCharacters}" ItemTemplate="{StaticResource ClueCard}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="0">
+                <TextBlock>Weapons</TextBlock>
+                <ItemsControl ItemsSource="{Binding UserWeapons}" ItemTemplate="{StaticResource ClueCard}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Margin="50,0,0,0">
+                <TextBlock>Locations</TextBlock>
+                <ItemsControl ItemsSource="{Binding UserLocations}" ItemTemplate="{StaticResource ClueCard}" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Rows="3"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </StackPanel>
+        </Grid>
+        <!--Inventory Button-->
+        <!--Needs some adjustement with size and what needs to be clicked to open the inventory-->
+        <Grid VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <Image Source="Images/bag.png" Width="50" Height="50" MouseLeftButtonDown="OpenInventory"></Image>
+            <Canvas Width="200" Height="200">
+                <Path Fill="Brown">
+                    <Path.Data>
+                        <CombinedGeometry GeometryCombineMode="Exclude">
+                            <CombinedGeometry.Geometry1>
+                                <EllipseGeometry Center="100,100" RadiusX="50" RadiusY="50"/>
+                            </CombinedGeometry.Geometry1>
+                            <CombinedGeometry.Geometry2>
+                                <EllipseGeometry Center="100,100" RadiusX="40" RadiusY="40"/>
+                            </CombinedGeometry.Geometry2>
+                        </CombinedGeometry>
+                    </Path.Data>
+                </Path>
+            </Canvas>
+        </Grid>
     </Grid>
 </Window>
