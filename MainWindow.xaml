@@ -134,7 +134,9 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <local:World Grid.Column="0"/>
+            <Viewbox Stretch="Uniform">
+                <local:World x:Name="map" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Viewbox>
             <!--Inventory Button-->
             <!--Needs some adjustement with what needs to be clicked to open the inventory-->
             <Grid x:Name="buttons" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,50,50" Grid.Column="1">

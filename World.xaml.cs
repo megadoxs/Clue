@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace Clue
 {
-    public partial class World : UserControl
+    public partial class World : Grid
     {
         public World()
         {

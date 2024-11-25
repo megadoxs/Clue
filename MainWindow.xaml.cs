@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -85,6 +87,14 @@ namespace Clue
             }
 
             DataContext = this;
+
+            var fields = map.GetType().GetFields(BindingFlags.Instance | BindingFlags.NonPublic);
+
+            foreach (var field in fields)
+            {
+                if (field.FieldType == typeof(Path))
+                    ((Path)field.GetValue(map)).MouseLeftButtonDown += WorldMap_MouseLeftButtonDown;
+            }
         }
 
         public void AddCard(Card card)
@@ -239,7 +249,7 @@ namespace Clue
 
         private void WorldMap_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show(((Path) sender).Name);
+            MessageBox.Show(((Path) sender).Tag.ToString());
         }
     }
 }
