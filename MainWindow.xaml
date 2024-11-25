@@ -3,72 +3,160 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
         xmlns:local="clr-namespace:Clue"
         mc:Ignorable="d"
         Title="MainWindow"
-        WindowState="Maximized"
-    >
+        WindowState="Maximized">
+
+    <Window.Resources>
+        <DataTemplate x:Key="ClueCard">
+            <Border BorderBrush="Black" BorderThickness="5">
+                <Image Source="{Binding image}" Width="100"></Image>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="SelectableClueCard">
+            <Border BorderBrush="Black" BorderThickness="5">
+                <Image Source="{Binding image}" Width="100" MouseLeftButtonDown="ClickGuessCard"></Image>
+            </Border>
+        </DataTemplate>
+    </Window.Resources>
+
     <Grid>
         <!--User Inventory Display-->
-        <Grid x:Name="Inventory"  Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid x:Name="Inventory"  Visibility="Hidden" Background="#40000000" Panel.ZIndex="99" MouseLeftButtonDown="CloseInventory">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0">
+                    <TextBlock Foreground="White">Characters</TextBlock>
+                    <ItemsControl ItemsSource="{Binding UserCharacters}" ItemTemplate="{StaticResource ClueCard}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="0">
+                    <TextBlock Foreground="White">Weapons</TextBlock>
+                    <ItemsControl ItemsSource="{Binding UserWeapons}" ItemTemplate="{StaticResource ClueCard}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Margin="50,0,0,0">
+                    <TextBlock Foreground="White">Locations</TextBlock>
+                    <ItemsControl ItemsSource="{Binding UserLocations}" ItemTemplate="{StaticResource ClueCard}" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Rows="3"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <!--Guess Section-->
+        <Grid x:Name="GuessPannel"  Visibility="Hidden" Background="#40000000" Panel.ZIndex="99" MouseLeftButtonDown="CloseGuess">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0">
+                    <TextBlock Foreground="White">Characters</TextBlock>
+                    <ItemsControl x:Name="characters" ItemsSource="{Binding AvailableCharacters}" ItemTemplate="{StaticResource SelectableClueCard}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="0">
+                    <TextBlock Foreground="White">Weapons</TextBlock>
+                    <ItemsControl x:Name="weapons" ItemsSource="{Binding AvailableWeapons}" ItemTemplate="{StaticResource SelectableClueCard}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Margin="50,0,0,0">
+                    <TextBlock Foreground="White">Locations</TextBlock>
+                    <ItemsControl x:Name="locations" ItemsSource="{Binding AvailableLocations}" ItemTemplate="{StaticResource SelectableClueCard}" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Rows="3"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0">
-                <TextBlock>Characters</TextBlock>
-                <ItemsControl ItemsSource="{Binding UserCharacters}" ItemTemplate="{StaticResource ClueCard}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="0">
-                <TextBlock>Weapons</TextBlock>
-                <ItemsControl ItemsSource="{Binding UserWeapons}" ItemTemplate="{StaticResource ClueCard}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Margin="50,0,0,0">
-                <TextBlock>Locations</TextBlock>
-                <ItemsControl ItemsSource="{Binding UserLocations}" ItemTemplate="{StaticResource ClueCard}" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <UniformGrid Rows="3"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
-            </StackPanel>
-        </Grid>
-        <!--Inventory Button-->
-        <!--Needs some adjustement with size and what needs to be clicked to open the inventory-->
-        <Grid VerticalAlignment="Bottom" HorizontalAlignment="Right">
-            <Image Source="Images/bag.png" Width="50" Height="50" MouseLeftButtonDown="OpenInventory"></Image>
-            <Canvas Width="200" Height="200">
-                <Path Fill="Brown">
-                    <Path.Data>
-                        <CombinedGeometry GeometryCombineMode="Exclude">
-                            <CombinedGeometry.Geometry1>
-                                <EllipseGeometry Center="100,100" RadiusX="50" RadiusY="50"/>
-                            </CombinedGeometry.Geometry1>
-                            <CombinedGeometry.Geometry2>
-                                <EllipseGeometry Center="100,100" RadiusX="40" RadiusY="40"/>
-                            </CombinedGeometry.Geometry2>
-                        </CombinedGeometry>
-                    </Path.Data>
-                </Path>
-            </Canvas>
+            <svgc:SvgViewbox x:Name="WorldMap" Source="Images/World.svg" MouseLeftButtonDown="WorldMap_MouseLeftButtonDown" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <!--Inventory Button-->
+            <!--Needs some adjustement with what needs to be clicked to open the inventory-->
+            <Grid x:Name="buttons" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,50,50" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Image Source="Images/bag.png" Width="50" Height="50" MouseLeftButtonDown="OpenInventory" Margin="0,20,0,0" Grid.Row="1"></Image>
+                <Canvas Width="100" Height="100" Margin="0,20,0,0" Grid.Row="1">
+                    <Path Fill="Brown">
+                        <Path.Data>
+                            <CombinedGeometry GeometryCombineMode="Exclude">
+                                <CombinedGeometry.Geometry1>
+                                    <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"/>
+                                </CombinedGeometry.Geometry1>
+                                <CombinedGeometry.Geometry2>
+                                    <EllipseGeometry Center="50,50" RadiusX="40" RadiusY="40"/>
+                                </CombinedGeometry.Geometry2>
+                            </CombinedGeometry>
+                        </Path.Data>
+                    </Path>
+                </Canvas>
+                <!--Missing Guessing Logic-->
+                <Image Source="Images/MagnifyingGlass.png" Width="50" Height="50" MouseLeftButtonDown="OpenGuess" Grid.Row="0"></Image>
+                <Canvas Width="100" Height="100" Grid.Row="0">
+                    <Path Fill="Green">
+                        <Path.Data>
+                            <CombinedGeometry GeometryCombineMode="Exclude">
+                                <CombinedGeometry.Geometry1>
+                                    <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"/>
+                                </CombinedGeometry.Geometry1>
+                                <CombinedGeometry.Geometry2>
+                                    <EllipseGeometry Center="50,50" RadiusX="40" RadiusY="40"/>
+                                </CombinedGeometry.Geometry2>
+                            </CombinedGeometry>
+                        </Path.Data>
+                    </Path>
+                </Canvas>
+            </Grid>
         </Grid>
     </Grid>
 </Window>
