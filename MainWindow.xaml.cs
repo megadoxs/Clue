@@ -1,30 +1,14 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using SharpVectors.Converters;
-using SharpVectors.Dom.Svg;
-using SharpVectors.Renderers.Utils;
-using SharpVectors.Renderers.Wpf;
-using SharpVectors.Renderers;
-using SharpVectors.Runtime;
-using SharpVectors.Scripting;
-using System.IO;
-using System.Reflection;
-using ShimSkiaSharp;
-using System.ComponentModel;
+using Path = System.Windows.Shapes.Path;
 
 namespace Clue
 {
@@ -241,12 +225,21 @@ namespace Clue
 
         private void ConfirmGuess(object sender, MouseButtonEventArgs e)
         {
-            
+            foreach (var card in Guess)
+            {
+                if (!Answers.Contains(card))
+                {
+                    MessageBox.Show("You Lost");
+                    this.Close();
+                    return;
+                }
+            }
+            MessageBox.Show("You Won");
         }
 
         private void WorldMap_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
+            MessageBox.Show(((Path) sender).Name);
         }
     }
 }

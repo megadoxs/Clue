@@ -111,13 +111,30 @@
                     </ItemsControl>
                 </StackPanel>
             </Grid>
+            <Grid VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,50,50" Grid.Column="1">
+                <Image Source="Images/Check.png" Width="50" Height="50" MouseLeftButtonDown="ConfirmGuess"></Image>
+                <Canvas Width="100" Height="100">
+                    <Path Fill="Green">
+                        <Path.Data>
+                            <CombinedGeometry GeometryCombineMode="Exclude">
+                                <CombinedGeometry.Geometry1>
+                                    <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"/>
+                                </CombinedGeometry.Geometry1>
+                                <CombinedGeometry.Geometry2>
+                                    <EllipseGeometry Center="50,50" RadiusX="40" RadiusY="40"/>
+                                </CombinedGeometry.Geometry2>
+                            </CombinedGeometry>
+                        </Path.Data>
+                    </Path>
+                </Canvas>
+            </Grid>
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <svgc:SvgViewbox x:Name="WorldMap" Source="Images/World.svg" MouseLeftButtonDown="WorldMap_MouseLeftButtonDown" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <local:World Grid.Column="0"/>
             <!--Inventory Button-->
             <!--Needs some adjustement with what needs to be clicked to open the inventory-->
             <Grid x:Name="buttons" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,50,50" Grid.Column="1">

@@ -118,6 +118,9 @@
     <Compile Include="StartUp.xaml.cs">
       <DependentUpon>StartUp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="World.xaml.cs">
+      <DependentUpon>World.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -134,6 +137,10 @@
     <Page Include="StartUp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="World.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -239,13 +246,13 @@
     <Resource Include="Images\MagnifyingGlass.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\World.svg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\CLUE_logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\clueBackground.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Check.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\HarfBuzzSharp.NativeAssets.macOS.7.3.0.2\build\net462\HarfBuzzSharp.NativeAssets.macOS.targets" Condition="Exists('packages\HarfBuzzSharp.NativeAssets.macOS.7.3.0.2\build\net462\HarfBuzzSharp.NativeAssets.macOS.targets')" />
