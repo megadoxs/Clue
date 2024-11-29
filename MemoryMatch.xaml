@@ -4,21 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clue"
-        mc:Ignorable="d" Height="500" Width="450" GotFocus="UserControl_GotFocus" Focusable="True" LostFocus="UserControl_LostFocus">
+        mc:Ignorable="d" Height="600" Width="450" GotFocus="UserControl_GotFocus" Focusable="True" LostFocus="UserControl_LostFocus">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        
+        <TextBlock FontSize="50" TextAlignment="Center">Matching Cards</TextBlock>
 
         <!-- Countdown Timer Display -->
         <TextBlock Name="TimerText" 
                    FontSize="24" 
                    HorizontalAlignment="Center" 
                    Margin="10" 
-                   Text="Time Left: 100" />
+                   Text="Time Left: 100" 
+                   Grid.Row="1"/>
 
         <!-- Game Grid -->
-        <UniformGrid Name="CardGrid" Rows="4" Columns="4" Grid.Row="1" />
+        <UniformGrid Name="CardGrid" Rows="4" Columns="4" Grid.Row="2" />
     </Grid>
 </UserControl>

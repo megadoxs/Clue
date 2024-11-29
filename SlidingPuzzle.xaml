@@ -1,6 +1,6 @@
 ﻿<UserControl x:Class="Clue.SlidingPuzzle"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Height="400" Width="400">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Height="450" Width="400">
     <UserControl.Resources>
         <Style x:Key="CustomButtonStyle" TargetType="Button">
             <Setter Property="Template">
@@ -29,17 +29,19 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <TextBlock FontSize="50" TextAlignment="Center">Sliding Puzzle</TextBlock>
         <!-- Top Controls -->
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="5">
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5">
             <TextBlock Name="MovesTextBlock" Text="Moves: 0" FontSize="16" VerticalAlignment="Center" Margin="5"/>
             <Button Name="ResetButton" Content="Reset Board" Margin="5" Padding="5" Click="ResetButton_Click"/>
             <Button Name="GiveUpButton" Content="Give Up" Margin="5" Padding="5" Click="GiveUpButton_Click"/>
         </StackPanel>
 
         <!-- Puzzle Grid -->
-        <UniformGrid Name="PuzzleGrid" Rows="3" Columns="3" Grid.Row="1" />
+        <UniformGrid Name="PuzzleGrid" Rows="3" Columns="3" Grid.Row="2" />
     </Grid>
 </UserControl>

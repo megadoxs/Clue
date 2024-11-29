@@ -33,7 +33,7 @@ namespace Clue
 
         public List<string> Countries = new List<string>();
 
-        private List<int> games = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        private List<int> games = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
         private UserControl UserControl = null;
 
@@ -189,10 +189,10 @@ namespace Clue
 
         private void ClickGuessCard(object sender, MouseButtonEventArgs e)
         {
-            var image = (Image) sender;
+            var image = (Image)sender;
             var border = (Border)image.Parent;
             border.BorderBrush = Brushes.White;
-            
+
             var gcard = image.DataContext as Card;
 
             var toRemove = Guess.FirstOrDefault(card => card.type == gcard.type);
@@ -246,16 +246,16 @@ namespace Clue
             if (Guess.Count != 3)
                 return;
 
+            GuessPannel.Visibility = Visibility.Hidden;
             foreach (var card in Guess)
             {
                 if (!Answers.Contains(card))
                 {
-                    MessageBox.Show("You Lost");
-                    this.Close();
+                    loose.Visibility = Visibility.Visible;
                     return;
                 }
             }
-            MessageBox.Show("You Won");
+            win.Visibility = Visibility.Visible;
         }
 
         public void GameWin()
@@ -274,6 +274,11 @@ namespace Clue
             }
             back.Visibility = Visibility.Hidden;
             Won.Visibility = Visibility.Visible;
+        }
+
+        private void GameEnd(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
         }
 
         private void CloseWin(object sender, MouseButtonEventArgs e)
@@ -320,13 +325,13 @@ namespace Clue
             Random random = new Random();
 
             FocusManager.SetFocusedElement(this, null);
-            switch (1) //games[random.Next(0, games.Count)]
+            switch (games[random.Next(0, games.Count)]) //games[random.Next(0, games.Count)]
             {
                 case 1:
-                    UserControl = CrackTheLock; //needs fixing
+                    UserControl = CrackTheLock;
                     break;
                 case 2:
-                    UserControl = CrossWord; //needs fixing
+                    UserControl = CrossWord;
                     break;
                 case 3:
                     UserControl = FindWaldo;
@@ -353,6 +358,55 @@ namespace Clue
             back.Visibility = Visibility.Visible;
             UserControl.Visibility = Visibility.Visible;
             FocusManager.SetFocusedElement(this, UserControl);
+        }
+
+        private void Image_TutoMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show(
+         "✨ Tutorial ✨\n\n" +
+         "🏆 The goal of the game is to:\n" +
+         "🧩 Find clues by solving puzzles across the world.\n\n" +
+         "👜 Your bag will contain all the clues you have found\n\n" +
+         "🔍 You can guess the killer by Clicking on the loop.\n\n" +
+         "💡 Use your wits, explore carefully, and have fun!\n\n" +
+         "🎮 Are you ready for the adventure ahead? 🌍" +
+          "\n-----------------------------------------------\n" +
+         "          (Click Yes to begin your journey)",
+         "Game Tutorial",
+
+         MessageBoxButton.YesNo,
+         MessageBoxImage.None);
+
+            if (result == MessageBoxResult.No)
+            {
+                MessageBoxResult result2 = MessageBox.Show(
+                    "Why didnt you press yes!!! 🎯\n\n" +
+                    "Go have fun and play our game. 🌟",
+                    "I better not see you again" +
+                     "\n-----------------------------------------------\n" +
+        "          (Click Yes to begin your journey)",
+
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.None
+                );
+                if (result2 == MessageBoxResult.No)
+                {
+                    MessageBoxResult result3 = MessageBox.Show(
+                        "Press it one more time and ill crash the game!!! 🎯\n\n" +
+                        "Dont waste your one chance to find me killer... 🌟",
+                        "This is my last Warning" +
+                         "\n-----------------------------------------------\n" +
+            "          (Click Yes to begin your journey)",
+
+                        MessageBoxButton.YesNo,
+                        MessageBoxImage.None
+                    );
+                    if (result3 == MessageBoxResult.No)
+                    {
+                        this.Close();
+                    }
+                }
+            }
         }
     }
 }

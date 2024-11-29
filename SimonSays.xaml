@@ -32,6 +32,7 @@
     </UserControl.Resources>
     <Grid>
         <StackPanel>
+            <TextBlock FontSize="50" TextAlignment="Center">Simon Says</TextBlock>
             <Grid Width="200" Height="200"  Margin="0,50,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>

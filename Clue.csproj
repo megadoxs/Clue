@@ -292,6 +292,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\map.png" />
+    <Content Include="Images\Icon-round-Question_mark.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\PuzzleBackground.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

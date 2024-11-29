@@ -170,7 +170,7 @@ namespace Clue
             emptyRow = 2;
             emptyCol = 2;
 
-            MessageBox.Show("Congrats, I guess. Press \"OK\" to claim your cards.", "You gave up... Skill issue ngl.");
+            MessageBox.Show("Lol not happening, get good.");
         }
     }
 }

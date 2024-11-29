@@ -38,7 +38,7 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0">
-                        <TextBlock Foreground="White">Characters</TextBlock>
+                        <TextBlock Foreground="White" FontSize="50" TextAlignment="Center">Characters</TextBlock>
                         <ItemsControl ItemsSource="{Binding UserCharacters}" ItemTemplate="{StaticResource ClueCard}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -48,7 +48,7 @@
                         </ItemsControl>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="0">
-                        <TextBlock Foreground="White">Weapons</TextBlock>
+                        <TextBlock Foreground="White" FontSize="50" TextAlignment="Center">Weapons</TextBlock>
                         <ItemsControl ItemsSource="{Binding UserWeapons}" ItemTemplate="{StaticResource ClueCard}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -58,7 +58,7 @@
                         </ItemsControl>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Margin="50,0,0,0">
-                        <TextBlock Foreground="White">Locations</TextBlock>
+                        <TextBlock Foreground="White" FontSize="50" TextAlignment="Center">Locations</TextBlock>
                         <ItemsControl ItemsSource="{Binding UserLocations}" ItemTemplate="{StaticResource ClueCard}" HorizontalAlignment="Left" VerticalAlignment="Top">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -83,7 +83,7 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0">
-                        <TextBlock Foreground="White">Characters</TextBlock>
+                        <TextBlock Foreground="White" FontSize="50" TextAlignment="Center">Characters</TextBlock>
                         <ItemsControl x:Name="characters" ItemsSource="{Binding AvailableCharacters}" ItemTemplate="{StaticResource SelectableClueCard}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -93,7 +93,7 @@
                         </ItemsControl>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="0">
-                        <TextBlock Foreground="White">Weapons</TextBlock>
+                        <TextBlock Foreground="White" FontSize="50" TextAlignment="Center">Weapons</TextBlock>
                         <ItemsControl x:Name="weapons" ItemsSource="{Binding AvailableWeapons}" ItemTemplate="{StaticResource SelectableClueCard}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -103,7 +103,7 @@
                         </ItemsControl>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Margin="50,0,0,0">
-                        <TextBlock Foreground="White">Locations</TextBlock>
+                        <TextBlock Foreground="White" FontSize="50" TextAlignment="Center">Locations</TextBlock>
                         <ItemsControl x:Name="locations" ItemsSource="{Binding AvailableLocations}" ItemTemplate="{StaticResource SelectableClueCard}" HorizontalAlignment="Left" VerticalAlignment="Top">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -145,9 +145,25 @@
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Image Source="Images/bag.png" Width="50" Height="50" MouseLeftButtonDown="OpenInventory" Margin="0,20,0,0" Grid.Row="1"></Image>
-                    <Canvas Width="100" Height="100" Margin="0,20,0,0" Grid.Row="1">
+                    <Image VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="Images/Icon-round-Question_mark.png" Width="100" Height="100" Grid.Row="0" MouseLeftButtonDown="Image_TutoMouseDown" Margin="0,0,0,20"/>
+                    <Canvas Width="100" Height="100" Margin="0,0,0,20" Grid.Row="0">
+                        <Path Fill="Black">
+                            <Path.Data>
+                                <CombinedGeometry GeometryCombineMode="Exclude">
+                                    <CombinedGeometry.Geometry1>
+                                        <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"/>
+                                    </CombinedGeometry.Geometry1>
+                                    <CombinedGeometry.Geometry2>
+                                        <EllipseGeometry Center="50,50" RadiusX="40" RadiusY="40"/>
+                                    </CombinedGeometry.Geometry2>
+                                </CombinedGeometry>
+                            </Path.Data>
+                        </Path>
+                    </Canvas>
+                    <Image Source="Images/bag.png" Width="50" Height="50" MouseLeftButtonDown="OpenInventory" Margin="0,20,0,0" Grid.Row="2"></Image>
+                    <Canvas Width="100" Height="100" Margin="0,20,0,0" Grid.Row="2">
                         <Path Fill="Brown">
                             <Path.Data>
                                 <CombinedGeometry GeometryCombineMode="Exclude">
@@ -161,9 +177,8 @@
                             </Path.Data>
                         </Path>
                     </Canvas>
-                    <!--Missing Guessing Logic-->
-                    <Image Source="Images/MagnifyingGlass.png" Width="50" Height="50" MouseLeftButtonDown="OpenGuess" Grid.Row="0"></Image>
-                    <Canvas Width="100" Height="100" Grid.Row="0">
+                    <Image Source="Images/MagnifyingGlass.png" Width="50" Height="50" MouseLeftButtonDown="OpenGuess" Grid.Row="1"></Image>
+                    <Canvas Width="100" Height="100" Grid.Row="1">
                         <Path Fill="Green">
                             <Path.Data>
                                 <CombinedGeometry GeometryCombineMode="Exclude">
@@ -213,5 +228,37 @@
             </StackPanel>
         </Grid>
         <Image x:Name="back" Visibility="Hidden" Source="Images/map.png" MouseDown="Image_MapMouseDown" Panel.ZIndex="100" Width="200" Height="200" Margin="0,0,20,20" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <UserControl>
+            <Grid x:Name="win" Visibility="Hidden" Background="#40000000" Panel.ZIndex="99" MouseLeftButtonDown="GameEnd">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock TextAlignment="Center" Foreground="White" FontSize="40">You Won!<LineBreak/>The Answer Was</TextBlock>
+                    <StackPanel>
+                        <ItemsControl ItemsSource="{Binding Answers}" ItemTemplate="{StaticResource ClueCard}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Rows="1" HorizontalAlignment="Center"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </UserControl>
+        <UserControl>
+            <Grid x:Name="loose" Visibility="Hidden" Background="#40000000" Panel.ZIndex="99" MouseLeftButtonDown="GameEnd">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock TextAlignment="Center" Foreground="White" FontSize="40">You Lost!<LineBreak/>The Answer Was</TextBlock>
+                    <StackPanel>
+                        <ItemsControl ItemsSource="{Binding Answers}" ItemTemplate="{StaticResource ClueCard}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Rows="1" HorizontalAlignment="Center"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </UserControl>
     </Grid>
 </Window>

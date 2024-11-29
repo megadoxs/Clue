@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clue"
-        mc:Ignorable="d" Height="450" Width="800"
+        mc:Ignorable="d" Height="500" Width="800"
         PreviewKeyDown="Window_PreviewKeyDown" Focusable="True">
     <UserControl.Resources>
         <Style x:Key="GridItemStyle" TargetType="Border">
@@ -14,7 +14,10 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <Grid x:Name="Guess">
-        </Grid>
+        <StackPanel>
+            <TextBlock FontSize="50" TextAlignment="Center">Wordle</TextBlock>
+            <Grid x:Name="Guess">
+            </Grid>
+        </StackPanel>
     </Grid>
 </UserControl>

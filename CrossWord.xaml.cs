@@ -85,6 +85,7 @@ namespace Clue
                         number.SetValue(Grid.ColumnProperty, x[i]);
                         number.Margin = new Thickness(5, 2, 0, 0);
                         number.FontSize = 15;
+                        Panel.SetZIndex(number, -1);
                         CrossWordsGrid.Children.Add(number);
                     }
 
@@ -154,9 +155,6 @@ namespace Clue
                     {
                         words[tag].Add(char.Parse(e.Key.ToString().ToLower()));
                         ((TextBlock)item.Child).Text = e.Key.ToString().ToUpper();
-                        if (list[tag].Key.Length == words[tag].Count - 1)
-                            e.Handled = true;
-
                     }
                     else if (_ is Border item2 && Grid.GetColumn(item2) == x && Grid.GetRow(item2) == y && ((TextBlock)item2.Child).Text != "")
                     {
@@ -232,8 +230,26 @@ namespace Clue
                     }
                 }
             }
-            else if (e.Key == Key.Enter && words[tag].Count() == list[tag].Key.Length && list[tag].Key.ToLower() == new string(words[tag].ToArray()).ToLower())
+            else if (e.Key == Key.Enter && (words[tag].Count() == list[tag].Key.Length && list[tag].Key.ToLower() == new string(words[tag].ToArray()).ToLower()) || (words[tag].Count() == list[tag].Key.Length - 1 && list[tag].Key.ToLower().Contains(new string(words[tag].ToArray()).ToLower())))
             {
+                bool cheat = false;
+
+                if (words[tag].Count() == list[tag].Key.Length - 1 && list[tag].Key.ToLower().Contains(new string(words[tag].ToArray()).ToLower()))
+                {
+                    cheat = true;
+                    foreach (var _ in CrossWordsGrid.Children)
+                    {
+                        if (_ is Border item && Grid.GetColumn(item) == x && Grid.GetRow(item) == y && list[tag].Key[list[tag].Key.Length - 1] == char.Parse(((TextBlock)item.Child).Text.ToLower()))
+                        {
+                            words[tag].Add(char.Parse(((TextBlock)item.Child).Text));
+                            cheat = false;
+                        }
+                    }
+                }
+
+                if (cheat)
+                    return;
+
                 x = this.x[tag];
                 y = this.y[tag];
                 for (int i = 0; i < list[tag].Key.Length; i++)
