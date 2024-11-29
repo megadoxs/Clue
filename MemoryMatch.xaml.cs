@@ -9,7 +9,7 @@ using System.Windows.Threading;
 
 namespace Clue // Ensure namespace matches XAML's x:Class
 {
-    public partial class MemoryMatch : Window
+    public partial class MemoryMatch : UserControl
     {
         private List<string> imagePaths;
         private Button firstClicked = null;

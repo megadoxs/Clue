@@ -12,7 +12,7 @@ namespace Clue
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class Wordle : Window
+    public partial class Wordle : UserControl
     {
         private List<string> answers = new List<string>() { "ocean", "whale", "glass", "water", "train", "earth", "river", "plane" };
         private Hunspell dictionary = new Hunspell("en_us.aff", "en_us.dic");

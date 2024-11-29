@@ -111,6 +111,7 @@
     </Compile>
     <Compile Include="World.xaml.cs">
       <DependentUpon>World.xaml</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Page Include="CrossWord.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -168,6 +169,7 @@
     <Page Include="World.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
   </ItemGroup>
   <ItemGroup>

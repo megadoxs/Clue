@@ -17,7 +17,7 @@ namespace Clue
     /// <summary>
     /// Interaction logic for CrackTheLock.xaml
     /// </summary>
-    public partial class CrackTheLock : Window
+    public partial class CrackTheLock : UserControl
     {
         private readonly int[] _lockCombination = { 3, 0, 1 };
         private int _hintIndex = 2; // Track which digit to hint next

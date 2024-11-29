@@ -4,7 +4,7 @@ using System.Windows.Controls;
 
 namespace Clue
 {
-    public partial class RockPaperScissors : Window
+    public partial class RockPaperScissors : UserControl
     {
         public RockPaperScissors()
         {

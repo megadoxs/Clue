@@ -20,7 +20,7 @@ namespace Clue
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class CrossWord : Window
+    public partial class CrossWord : UserControl
     {
         private List<KeyValuePair<string, Orientation>> list = new List<KeyValuePair<string, Orientation>>() {
             new KeyValuePair<string, Orientation>("barrier", Orientation.Horizontal),

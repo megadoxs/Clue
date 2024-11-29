@@ -7,7 +7,7 @@ using System.Windows.Media.Imaging;
 
 namespace Clue
 {
-    public partial class SlidingPuzzle : Window
+    public partial class SlidingPuzzle : UserControl
     {
         private Button[,] buttons = new Button[3, 3]; // 3x3 array for the buttons
         private int emptyRow = 2, emptyCol = 2; // Position of the empty slot

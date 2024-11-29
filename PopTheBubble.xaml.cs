@@ -18,7 +18,7 @@ namespace Clue
     /// <summary>
     /// Interaction logic for PopTheBubble.xaml
     /// </summary>
-    public partial class PopTheBubble : Window
+    public partial class PopTheBubble : UserControl
     {
         DispatcherTimer gameTimer = new DispatcherTimer(); // create a new instance of the dispatcher timer called gameTimer
 
@@ -146,7 +146,6 @@ namespace Clue
             {
                 gameCompleted = true; // Lock the game from further play
                 MessageBox.Show("Congratulations! You scored " + score + " points! Press \"OK\" to clam your cards!", "Game Over");
-                this.Close();
             }
             else
             {

@@ -18,7 +18,7 @@ namespace Clue
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class SimonSays : Window
+    public partial class SimonSays : UserControl
     {
         private bool displaying;
         private int slevel = 0;
@@ -93,14 +93,14 @@ namespace Clue
                 userSequence.Add(3);
 
             if (userSequence[userSequence.Count() - 1] != sequence[userSequence.Count() - 1])
-                this.Close(); // losing system goes here
+                userSequence.Clear();// remove when implement // losing system goes here
             else if (userSequence.Count() != sequence.Length && userSequence.Count() == slevel)
             {
                 userSequence.Clear();
                 display_Sequence();
             }
             else if (userSequence.Count() == sequence.Length)
-                this.Close(); // wining system goes here
+                userSequence.Clear();// remove when implement // wining system goes here
         }
     }
 }

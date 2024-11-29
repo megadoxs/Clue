@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Xml.Linq;
 using Path = System.Windows.Shapes.Path;
 
 namespace Clue
@@ -28,6 +29,8 @@ namespace Clue
         public ObservableCollection<Card> AvailableWeapons { get; } = new ObservableCollection<Card>();
         public ObservableCollection<Card> Guess { get; set; } = new ObservableCollection<Card>();
         public ObservableCollection<Card> Answers { get; } = new ObservableCollection<Card>();
+
+        public List<string> Countries = new List<string>();
 
         public const int CharactersSize = 6;
         public const int WeaponsSize = 6;

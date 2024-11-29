@@ -18,7 +18,7 @@ namespace Clue
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class FindWaldo : Window
+    public partial class FindWaldo : UserControl
     {
         private List<int> found = new List<int>();
         public FindWaldo()
