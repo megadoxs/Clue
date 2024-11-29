@@ -28,13 +28,6 @@ namespace Clue
         public SimonSays()
         {
             InitializeComponent();
-
-            Random rand = new Random();
-            for (int i = 0; i < sequence.Length; i++)
-            {
-                sequence[i] = rand.Next(0, 4);
-            }
-            display_Sequence();
         }
 
         private async void display_Sequence()
@@ -113,6 +106,18 @@ namespace Clue
                     mainWindow.GameWin();
                 }
             }
+        }
+
+        private void UserControl_GotFocus(object sender, RoutedEventArgs e)
+        {
+            userSequence.Clear();
+            slevel = 0;
+            Random rand = new Random();
+            for (int i = 0; i < sequence.Length; i++)
+            {
+                sequence[i] = rand.Next(0, 4);
+            }
+            display_Sequence();
         }
     }
 }

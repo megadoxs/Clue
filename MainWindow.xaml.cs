@@ -33,6 +33,8 @@ namespace Clue
 
         public List<string> Countries = new List<string>();
 
+        private List<int> games = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
         private UserControl UserControl = null;
 
         public const int CharactersSize = 6;
@@ -258,6 +260,7 @@ namespace Clue
 
         public void GameWin()
         {
+            games.Remove(int.Parse(UserControl.Tag.ToString()));
             map.Focus();
             Unlocked.Clear();
             for (int i = 0; i < 2; i++)
@@ -286,18 +289,34 @@ namespace Clue
 
         public void GameLose()
         {
-            this.Focus();
+            lost.Visibility = Visibility.Visible;
+        }
+
+        private void Image_MapMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            map.Focus();
             lobby.Visibility = Visibility.Visible;
             UserControl.Visibility = Visibility.Hidden;
+            lost.Visibility = Visibility.Hidden;
+        }
+        private void Image_RetryMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            FocusManager.SetFocusedElement(this, null);
+            lost.Visibility = Visibility.Hidden;
+            FocusManager.SetFocusedElement(this, UserControl);
         }
 
         private void WorldMap_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            if (games.Count == 0)
+                return;
+
             //MessageBox.Show(((Path) sender).Tag.ToString());
             lobby.Visibility = Visibility.Hidden;
             Random random = new Random();
 
-            switch (random.Next(0, 9))
+            FocusManager.SetFocusedElement(this, null);
+            switch (games[random.Next(0, games.Count)]) //games[random.Next(0, games.Count)]
             {
                 case 0:
                     UserControl = CrackTheLock;
@@ -328,7 +347,7 @@ namespace Clue
                     break;
             }
             UserControl.Visibility = Visibility.Visible;
-            UserControl.Focus();
+            FocusManager.SetFocusedElement(this, UserControl);
         }
     }
 }

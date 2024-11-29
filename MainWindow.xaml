@@ -7,7 +7,8 @@
         xmlns:local="clr-namespace:Clue"
         mc:Ignorable="d"
         Title="MainWindow"
-        WindowState="Maximized">
+        WindowState="Maximized"
+        ResizeMode="NoResize">
 
     <Window.Resources>
         <DataTemplate x:Key="ClueCard">
@@ -179,26 +180,35 @@
                 </Grid>
             </Grid>
         </Grid>
-        <local:CrackTheLock x:Name="CrackTheLock" Visibility="Hidden"/>
-        <local:CrossWord x:Name="CrossWord" Visibility="Hidden"/>
-        <local:FindWaldo x:Name="FindWaldo" Visibility="Hidden"/>
-        <local:MemoryMatch x:Name="MemoryMatch" Visibility="Hidden"/>
-        <local:PopTheBubble x:Name="PopTheBubble" Visibility="Hidden"/>
-        <local:RockPaperScissors x:Name="RockPaperScissors" Visibility="Hidden"/>
-        <local:SimonSays x:Name="SimonSays" Visibility="Hidden"/>
-        <local:SlidingPuzzle x:Name="SlidingPuzzle" Visibility="Hidden"/>
-        <local:Wordle x:Name="Wordle" Visibility="Hidden"/>
+        <local:CrackTheLock x:Name="CrackTheLock" Visibility="Hidden" Tag="1"/>
+        <local:CrossWord x:Name="CrossWord" Visibility="Hidden" Tag="2"/>
+        <local:FindWaldo x:Name="FindWaldo" Visibility="Hidden" Tag="3"/>
+        <local:MemoryMatch x:Name="MemoryMatch" Visibility="Hidden" Tag="4"/>
+        <local:PopTheBubble x:Name="PopTheBubble" Visibility="Hidden" Tag="5"/>
+        <local:RockPaperScissors x:Name="RockPaperScissors" Visibility="Hidden" Tag="6"/>
+        <local:SimonSays x:Name="SimonSays" Visibility="Hidden" Tag="7"/>
+        <local:SlidingPuzzle x:Name="SlidingPuzzle" Visibility="Hidden" Tag="8"/>
+        <local:Wordle x:Name="Wordle" Visibility="Hidden" Tag="9"/>
         <Grid x:Name="Won" Visibility="Hidden" MouseLeftButtonDown="CloseWin" Background="#40000000" Panel.ZIndex="99">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBlock>You Won two Cards</TextBlock>
+                <TextBlock TextAlignment="Center" Foreground="White" FontSize="40">You Won two Cards</TextBlock>
                 <StackPanel>
                     <ItemsControl ItemsSource="{Binding Unlocked}" ItemTemplate="{StaticResource ClueCard}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <UniformGrid Rows="1"/>
+                                <UniformGrid Rows="1" HorizontalAlignment="Center"/>
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                     </ItemsControl>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="lost" Visibility="Hidden" Background="#40000000" Panel.ZIndex="99">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock TextAlignment="Center" Foreground="White" FontSize="40">You Lost!</TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Image Source="Images/map.png" MouseDown="Image_MapMouseDown" Panel.ZIndex="100" Width="200" Height="200" Margin="0,0,20,0"/>
+                    <Image Source="Images/retry.png" MouseDown="Image_RetryMouseDown" Panel.ZIndex="100" Width="200" Height="200" Margin="20,0,0,0"/>
                 </StackPanel>
             </StackPanel>
         </Grid>

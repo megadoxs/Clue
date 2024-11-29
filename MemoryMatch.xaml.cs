@@ -185,7 +185,7 @@ namespace Clue // Ensure namespace matches XAML's x:Class
 
         private void UserControl_GotFocus(object sender, RoutedEventArgs e)
         {
-            StartCountdown();
+            ResetGame();
         }
 
         private void UserControl_LostFocus(object sender, RoutedEventArgs e)

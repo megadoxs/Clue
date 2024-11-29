@@ -45,6 +45,7 @@ namespace Clue
                         Background = value == 0 ? null : CreateImageBrush(value, 3) // Set image or leave empty
                     };
 
+                    button.Style = (Style)this.FindResource("CustomButtonStyle");
                     button.Click += Button_Click; // Add the click event
                     buttons[row, col] = button;
                     PuzzleGrid.Children.Add(button);

@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clue"
-        mc:Ignorable="d" Height="450" Width="800"
+        mc:Ignorable="d" Height="450" Width="900"
         PreviewKeyDown="Window_PreviewKeyDown" Focusable="True">
     <Grid>
         <Grid>
@@ -17,7 +17,7 @@
 
                 </Grid>
             </Viewbox>
-            <StackPanel VerticalAlignment="Center" Grid.Column="1">
+            <StackPanel VerticalAlignment="Center" Grid.Column="1" Margin="50,0,0,0">
                 <TextBlock>Across</TextBlock>
                 <TextBlock>
                     1. An obstacle that prevents or hinders movement or progress.<LineBreak/>

@@ -44,6 +44,13 @@ namespace Clue
         public PopTheBubble()
         {
             InitializeComponent();
+            // initialize game settings
+            gameTimer.Tick += GameLoop; // set the game loop
+            gameTimer.Interval = TimeSpan.FromMilliseconds(20); // timer ticks every 20 ms
+            gameTimer.Start(); // start the timer
+
+            currentRate = spawnRate; // set the current rate to the default spawn rate
+            gameTimer.Stop();
         }
 
         private void GameLoop(object sender, EventArgs e)
@@ -182,12 +189,8 @@ namespace Clue
 
         private void UserControl_GotFocus(object sender, RoutedEventArgs e)
         {
-            // initialize game settings
-            gameTimer.Tick += GameLoop; // set the game loop
-            gameTimer.Interval = TimeSpan.FromMilliseconds(20); // timer ticks every 20 ms
-            gameTimer.Start(); // start the timer
-
-            currentRate = spawnRate; // set the current rate to the default spawn rate
+            gameCompleted = false;
+            ResetGame();
         }
     }
 }
