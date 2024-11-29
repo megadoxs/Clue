@@ -6,7 +6,7 @@
         xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
         xmlns:local="clr-namespace:Clue"
         mc:Ignorable="d"
-        Title="MainWindow"
+        Title="Clue"
         WindowState="Maximized"
         ResizeMode="NoResize">
 

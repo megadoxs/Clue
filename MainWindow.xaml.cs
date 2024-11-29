@@ -365,8 +365,9 @@ namespace Clue
             MessageBoxResult result = MessageBox.Show(
          "✨ Tutorial ✨\n\n" +
          "🏆 The goal of the game is to:\n" +
-         "🧩 Find clues by solving puzzles across the world.\n\n" +
-         "👜 Your bag will contain all the clues you have found\n\n" +
+         "🧩 Find clues by solving puzzles across the world.\n" +
+         "🌎 To open a puzzle, click on a country on the map.\n\n" +
+         "👜 Your bag will contain all the clues you have found.\n" +
          "🔍 You can guess the killer by Clicking on the loop.\n\n" +
          "💡 Use your wits, explore carefully, and have fun!\n\n" +
          "🎮 Are you ready for the adventure ahead? 🌍" +
