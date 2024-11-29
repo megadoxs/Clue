@@ -8,7 +8,8 @@
         mc:Ignorable="d"
         Title="Clue"
         WindowState="Maximized"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        Icon="Images/clue.ico">
 
     <Window.Resources>
         <DataTemplate x:Key="ClueCard">

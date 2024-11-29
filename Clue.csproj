@@ -292,6 +292,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\map.png" />
+    <Resource Include="Images\clue.ico" />
     <Content Include="Images\Icon-round-Question_mark.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
