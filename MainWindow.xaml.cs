@@ -316,7 +316,7 @@ namespace Clue
             Random random = new Random();
 
             FocusManager.SetFocusedElement(this, null);
-            switch (2) //games[random.Next(0, games.Count)]
+            switch (games[random.Next(0, games.Count)]) //games[random.Next(0, games.Count)]
             {
                 case 1:
                     UserControl = CrackTheLock;

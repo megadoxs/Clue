@@ -261,7 +261,12 @@ namespace Clue
                 }
                 foreach (var _ in CrossWordsGrid.Children)
                 {
-                    if (_ is Border item && Grid.GetColumn(item) == this.x[tag+1] && Grid.GetRow(item) == this.y[tag + 1])
+                    int next = 0;
+                    if (x < 10)
+                        x++;
+                    else
+                        x = 1;
+                    if (_ is Border item && Grid.GetColumn(item) == this.x[next] && Grid.GetRow(item) == this.y[next])
                         focus = (TextBlock)item.Child;
                 }
             }
