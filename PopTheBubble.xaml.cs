@@ -44,13 +44,6 @@ namespace Clue
         public PopTheBubble()
         {
             InitializeComponent();
-
-            // initialize game settings
-            gameTimer.Tick += GameLoop; // set the game loop
-            gameTimer.Interval = TimeSpan.FromMilliseconds(20); // timer ticks every 20 ms
-            gameTimer.Start(); // start the timer
-
-            currentRate = spawnRate; // set the current rate to the default spawn rate
         }
 
         private void GameLoop(object sender, EventArgs e)
@@ -145,14 +138,24 @@ namespace Clue
             if (score >= 25)
             {
                 gameCompleted = true; // Lock the game from further play
-                MessageBox.Show("Congratulations! You scored " + score + " points! Press \"OK\" to clam your cards!", "Game Over");
+                //MessageBox.Show("Congratulations! You scored " + score + " points! Press \"OK\" to clam your cards!", "Game Over");
+                MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                if (mainWindow != null)
+                {
+                    mainWindow.GameWin();
+                }
             }
             else
             {
-                MessageBox.Show("Game Over! You scored " + score + " points. Try again.", "Game Over");
-
+                //MessageBox.Show("Game Over! You scored " + score + " points. Try again.", "Game Over");
+                gameCompleted = true;
+                MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                if (mainWindow != null)
+                {
+                    mainWindow.GameLose();
+                }
                 // Reset game values if the score is below 25
-                ResetGame();
+                //ResetGame();
             }
         }
 
@@ -175,6 +178,16 @@ namespace Clue
             health = 350;
             removeThis.Clear();
             gameTimer.Start();
+        }
+
+        private void UserControl_GotFocus(object sender, RoutedEventArgs e)
+        {
+            // initialize game settings
+            gameTimer.Tick += GameLoop; // set the game loop
+            gameTimer.Interval = TimeSpan.FromMilliseconds(20); // timer ticks every 20 ms
+            gameTimer.Start(); // start the timer
+
+            currentRate = spawnRate; // set the current rate to the default spawn rate
         }
     }
 }

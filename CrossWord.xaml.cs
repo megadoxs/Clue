@@ -252,7 +252,11 @@ namespace Clue
                 correct.Add(tag);
                 if (correct.Count == 10)
                 {
-                    MessageBox.Show("You Won");
+                    MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                    if (mainWindow != null)
+                    {
+                        mainWindow.GameWin();
+                    }
                     return;
                 }
                 foreach (var _ in CrossWordsGrid.Children)

@@ -22,7 +22,6 @@ namespace Clue // Ensure namespace matches XAML's x:Class
         {
             InitializeComponent();
             InitializeGame();
-            StartCountdown();
         }
 
         private void InitializeGame()
@@ -136,7 +135,11 @@ namespace Clue // Ensure namespace matches XAML's x:Class
             }
 
             countdownTimer.Stop(); // Stop the countdown if the player wins
-            MessageBox.Show("Congratulations, you've matched all pairs!", "You Win!");
+            MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.GameWin();
+            }
             ResetGame();
         }
 
@@ -168,12 +171,26 @@ namespace Clue // Ensure namespace matches XAML's x:Class
                 if (timeLeft <= 0)
                 {
                     countdownTimer.Stop();
-                    MessageBox.Show("Time's up! You lost the game.", "Game Over");
-                    ResetGame();
+                    MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                    if (mainWindow != null)
+                    {
+                        mainWindow.GameLose();
+                    }
+                    //ResetGame();
                 }
             };
 
             countdownTimer.Start();
+        }
+
+        private void UserControl_GotFocus(object sender, RoutedEventArgs e)
+        {
+            StartCountdown();
+        }
+
+        private void UserControl_LostFocus(object sender, RoutedEventArgs e)
+        {
+            countdownTimer.Stop();
         }
     }
 }

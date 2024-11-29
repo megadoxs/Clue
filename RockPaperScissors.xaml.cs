@@ -27,6 +27,23 @@ namespace Clue
             PlayerChoiceText.Text = $"Your Choice: {playerChoice}";
             ComputerChoiceText.Text = $"Computer's Choice: {computerChoice}";
             ResultText.Text = $"Result: {result}";
+            if (result == "You Win!")
+            {
+                MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                if (mainWindow != null)
+                {
+                    mainWindow.GameWin();
+                }
+            }
+            else
+            {
+                MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                if (mainWindow != null)
+                {
+                    mainWindow.GameLose();
+                }
+            }
+
         }
 
         private string GetComputerChoice()

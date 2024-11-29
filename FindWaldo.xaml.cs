@@ -53,7 +53,11 @@ namespace Clue
                 }
                 if (found.Count() == 5)
                 {
-                    MessageBox.Show("You Won");
+                    MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                    if (mainWindow != null)
+                    {
+                        mainWindow.GameWin();
+                    }
                 }
             }
         }
