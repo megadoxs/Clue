@@ -1,0 +1,24 @@
+﻿<Window x:Class="Clue.RockPaperScissors.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Rock-Paper-Scissors" Height="400" Width="500"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        
+        <TextBlock Text="Rock-Paper-Scissors" FontSize="24" HorizontalAlignment="Center" Margin="0,20,0,0" />
+
+        <!-- Buttons for Player's Choices -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,50">
+            <Button Content="Rock" Width="100" Height="50" Margin="10" Click="Button_Click" Tag="Rock" />
+            <Button Content="Paper" Width="100" Height="50" Margin="10" Click="Button_Click" Tag="Paper" />
+            <Button Content="Scissors" Width="100" Height="50" Margin="10" Click="Button_Click" Tag="Scissors" />
+        </StackPanel>
+
+        <!-- Results -->
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,50">
+            <TextBlock Name="PlayerChoiceText" Text="Your Choice: " FontSize="16" Margin="0,10" />
+            <TextBlock Name="ComputerChoiceText" Text="Computer's Choice: " FontSize="16" Margin="0,10" />
+            <TextBlock Name="ResultText" Text="Result: " FontSize="18" FontWeight="Bold" Margin="0,10" />
+        </StackPanel>
+    </Grid>
+</Window>

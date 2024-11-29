@@ -1,0 +1,41 @@
+﻿<Window x:Class="Clue.CrossWord.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Clue.CrossWord"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        PreviewKeyDown="Window_PreviewKeyDown">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Viewbox Stretch="Uniform">
+                <Grid x:Name="CrossWordsGrid">
+
+                </Grid>
+            </Viewbox>
+            <StackPanel VerticalAlignment="Center" Grid.Column="1">
+                <TextBlock>Across</TextBlock>
+                <TextBlock>
+                    1. An obstacle that prevents or hinders movement or progress.<LineBreak/>
+                    4. The place you are aiming to reach on a journey.<LineBreak/>
+                    6. An exciting or unusual experience, often involving exploration.<LineBreak/>
+                    7. A state of peace and calm, often associated with serene places.<LineBreak/>
+                    9. The act of looking inward to examine your own thoughts or feelings.<LineBreak/>
+                    10. The practice of hunting large marine mammals for their oil and meat.
+                </TextBlock>
+                <TextBlock Margin="0,50,0,0">Down</TextBlock>
+                <TextBlock>
+                    2. The process of moving to a new country to live permanently.<LineBreak/>
+                    3. Dishonest or fraudulent conduct by those in power.<LineBreak/>
+                    5. Events or activities that leave a lasting impression on someone.<LineBreak/>
+                    8. A vast body of saltwater covering most of Earth's surface.
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
