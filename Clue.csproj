@@ -121,6 +121,9 @@
     <Compile Include="MemoryMatch.xaml.cs">
       <DependentUpon>MemoryMatch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PopTheBubble.xaml.cs">
+      <DependentUpon>PopTheBubble.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SlidingPuzzle.xaml.cs">
       <DependentUpon>SlidingPuzzle.xaml</DependentUpon>
     </Compile>
@@ -148,6 +151,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MemoryMatch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PopTheBubble.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
