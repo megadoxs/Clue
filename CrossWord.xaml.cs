@@ -39,7 +39,7 @@ namespace Clue
 
         private List<List<char>> words = new List<List<char>>();
 
-        private TextBlock focus = new TextBlock();
+        private TextBlock focus = null;
         private List<int> correct = new List<int>();
         public CrossWord()
         {
@@ -126,6 +126,8 @@ namespace Clue
 
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {
+            if (focus == null)
+                return;
 
             string[] parts = focus.Tag.ToString().Split(',');
             int tag = int.Parse(parts[0]);
@@ -152,6 +154,9 @@ namespace Clue
                     {
                         words[tag].Add(char.Parse(e.Key.ToString().ToLower()));
                         ((TextBlock)item.Child).Text = e.Key.ToString().ToUpper();
+                        if (list[tag].Key.Length == words[tag].Count - 1)
+                            e.Handled = true;
+
                     }
                     else if (_ is Border item2 && Grid.GetColumn(item2) == x && Grid.GetRow(item2) == y && ((TextBlock)item2.Child).Text != "")
                     {

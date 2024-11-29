@@ -212,5 +212,6 @@
                 </StackPanel>
             </StackPanel>
         </Grid>
+        <Image x:Name="back" Visibility="Hidden" Source="Images/map.png" MouseDown="Image_MapMouseDown" Panel.ZIndex="100" Width="200" Height="200" Margin="0,0,20,20" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

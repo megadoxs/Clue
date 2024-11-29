@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clue"
-        mc:Ignorable="d" Height="450" Width="900"
+        mc:Ignorable="d" Height="675" Width="1350"
         PreviewKeyDown="Window_PreviewKeyDown" Focusable="True">
     <Grid>
         <Grid>

@@ -4,24 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clue"
-        mc:Ignorable="d" Height="600" Width="800">
+        mc:Ignorable="d" Height="800" Width="800" Focusable="True">
     <Grid Background="LightGray">
         <!-- Lock Title -->
         <TextBlock Text="Crack the Lock!" FontSize="28" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" />
-
         <!-- Lock Image -->
         <TextBlock Text="🔒" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,80,0,0" />
 
         <!-- Combination Input -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,180,0,0">
-            <TextBox x:Name="Num1" Width="50" FontSize="20" TextAlignment="Center" MaxLength="1" Margin="5" />
-            <TextBox x:Name="Num2" Width="50" FontSize="20" TextAlignment="Center" MaxLength="1" Margin="5" />
-            <TextBox x:Name="Num3" Width="50" FontSize="20" TextAlignment="Center" MaxLength="1" Margin="5" />
+            <TextBox x:Name="Num1" Width="50" FontSize="20" TextAlignment="Center" MaxLength="1" Margin="5" Focusable="True" PreviewKeyDown="Num1_KeyDown"/>
+            <TextBox x:Name="Num2" Width="50" FontSize="20" TextAlignment="Center" MaxLength="1" Margin="5" Focusable="True" PreviewKeyDown="Num1_KeyDown"/>
+            <TextBox x:Name="Num3" Width="50" FontSize="20" TextAlignment="Center" MaxLength="1" Margin="5" Focusable="True" PreviewKeyDown="Num1_KeyDown"/>
         </StackPanel>
 
         <!-- Buttons (Submit and Hint) -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,240,0,0">
-            <Button Content="Submit" Width="120" Height="40" Margin="10,0,10,0" Click="Submit_Click" />
+            <Button Content="Submit" Width="120" Height="40" Margin="10,0,10,0" Click="Submit_Click" PreviewKeyDown="Button_PreviewKeyDown" />
             <Button Content="Hint" Width="120" Height="40" Margin="10,0,10,0" Click="Hint_Click" />
         </StackPanel>
 

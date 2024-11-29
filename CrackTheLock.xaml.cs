@@ -54,6 +54,14 @@ namespace Clue
             }
         }
 
+        private void Button_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                e.Handled = true; // Prevent the button from responding to Enter
+            }
+        }
+
         private void Hint_Click(object sender, RoutedEventArgs e)
         {
             // Provide hint logic
@@ -77,6 +85,34 @@ namespace Clue
                     return false;
             }
             return true;
+        }
+
+        private void Num1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (int.TryParse(((TextBox)sender).Text, out int _))
+            {
+                switch (((TextBox)sender).Name)
+                {
+                    case "Num1":
+                        Num2.Focus();
+                        break;
+                    case "Num2":
+                        Num3.Focus();
+                        break;
+                }
+            }
+            else if (e.Key == Key.Back)
+            {
+                switch (((TextBox)sender).Name)
+                {
+                    case "Num2":
+                        Num1.Focus();
+                        break;
+                    case "Num3":
+                        Num2.Focus();
+                        break;
+                }
+            }
         }
     }
 }

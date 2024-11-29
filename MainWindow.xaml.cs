@@ -261,7 +261,7 @@ namespace Clue
         public void GameWin()
         {
             games.Remove(int.Parse(UserControl.Tag.ToString()));
-            map.Focus();
+            FocusManager.SetFocusedElement(this, Won);
             Unlocked.Clear();
             for (int i = 0; i < 2; i++)
             {
@@ -272,6 +272,7 @@ namespace Clue
                 Unlocked.Add(card);
 
             }
+            back.Visibility = Visibility.Hidden;
             Won.Visibility = Visibility.Visible;
         }
 
@@ -289,6 +290,7 @@ namespace Clue
 
         public void GameLose()
         {
+            back.Visibility = Visibility.Hidden;
             lost.Visibility = Visibility.Visible;
         }
 
@@ -298,11 +300,13 @@ namespace Clue
             lobby.Visibility = Visibility.Visible;
             UserControl.Visibility = Visibility.Hidden;
             lost.Visibility = Visibility.Hidden;
+            back.Visibility = Visibility.Hidden;
         }
         private void Image_RetryMouseDown(object sender, MouseButtonEventArgs e)
         {
             FocusManager.SetFocusedElement(this, null);
             lost.Visibility = Visibility.Hidden;
+            back.Visibility = Visibility.Visible;
             FocusManager.SetFocusedElement(this, UserControl);
         }
 
@@ -316,13 +320,13 @@ namespace Clue
             Random random = new Random();
 
             FocusManager.SetFocusedElement(this, null);
-            switch (games[random.Next(0, games.Count)]) //games[random.Next(0, games.Count)]
+            switch (1) //games[random.Next(0, games.Count)]
             {
                 case 1:
-                    UserControl = CrackTheLock;
+                    UserControl = CrackTheLock; //needs fixing
                     break;
                 case 2:
-                    UserControl = CrossWord;
+                    UserControl = CrossWord; //needs fixing
                     break;
                 case 3:
                     UserControl = FindWaldo;
@@ -346,6 +350,7 @@ namespace Clue
                     UserControl = Wordle;
                     break;
             }
+            back.Visibility = Visibility.Visible;
             UserControl.Visibility = Visibility.Visible;
             FocusManager.SetFocusedElement(this, UserControl);
         }
