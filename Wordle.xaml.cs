@@ -7,19 +7,19 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace Clue.Wordle
+namespace Clue
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Wordle : Window
     {
         private List<string> answers = new List<string>() { "ocean", "whale", "glass", "water", "train", "earth", "river", "plane" };
         private Hunspell dictionary = new Hunspell("en_us.aff", "en_us.dic");
         private List<char> word = new List<char>();
         private string answer;
         private int tries = 0;
-        public MainWindow()
+        public Wordle()
         {
             InitializeComponent();
             Random random = new Random();

@@ -7,9 +7,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
-namespace Clue.MemoryMatch // Ensure namespace matches XAML's x:Class
+namespace Clue // Ensure namespace matches XAML's x:Class
 {
-    public partial class MainWindow : Window
+    public partial class MemoryMatch : Window
     {
         private List<string> imagePaths;
         private Button firstClicked = null;
@@ -18,7 +18,7 @@ namespace Clue.MemoryMatch // Ensure namespace matches XAML's x:Class
         private int timeLeft = 100; // Countdown time in seconds
         private bool canClick = true; // To prevent fast clicking
 
-        public MainWindow()
+        public MemoryMatch()
         {
             InitializeComponent();
             InitializeGame();
@@ -30,15 +30,15 @@ namespace Clue.MemoryMatch // Ensure namespace matches XAML's x:Class
             // Create a list of image paths (8 pairs - example paths)
             imagePaths = new List<string>
             {
-                @"C:\Users\chris\source\repos\Clue\Images\Countries\CanadaPhoto.png", @"C:\Users\chris\source\repos\Clue\Images\Countries\FREEPALESTINE.png",
-                @"C:\Users\chris\source\repos\Clue\Images\Countries\NorwayPhoto.png", @"C:\Users\chris\source\repos\Clue\Images\Countries\PakistaniPhoto.png",
-                @"C:\Users\chris\source\repos\Clue\Images\Countries\PhilippinesPhoto.png", @"C:\Users\chris\source\repos\Clue\Images\Countries\PortugalPhoto.png",
-                @"C:\Users\chris\source\repos\Clue\Images\Countries\UKPhoto.png", @"C:\Users\chris\source\repos\Clue\Images\Countries\USAPhoto.png",
+                "Images/Countries/CanadaPhoto.png", "Images/Countries/FREEPALESTINE.png",
+                "Images/Countries/NorwayPhoto.png", "Images/Countries/PakistaniPhoto.png",
+                "Images/Countries/PhilippinesPhoto.png", "Images/Countries/PortugalPhoto.png",
+                "Images/Countries/UKPhoto.png", "Images/Countries/USAPhoto.png",
 
-                @"C:\Users\chris\source\repos\Clue\Images\Countries\CanadaPhoto.png", @"C:\Users\chris\source\repos\Clue\Images\Countries\FREEPALESTINE.png",
-                @"C:\Users\chris\source\repos\Clue\Images\Countries\NorwayPhoto.png", @"C:\Users\chris\source\repos\Clue\Images\Countries\PakistaniPhoto.png",
-                @"C:\Users\chris\source\repos\Clue\Images\Countries\PhilippinesPhoto.png", @"C:\Users\chris\source\repos\Clue\Images\Countries\PortugalPhoto.png",
-                @"C:\Users\chris\source\repos\Clue\Images\Countries\UKPhoto.png", @"C:\Users\chris\source\repos\Clue\Images\Countries\USAPhoto.png"
+                "Images/Countries/CanadaPhoto.png", "Images/Countries/FREEPALESTINE.png",
+                "Images/Countries/NorwayPhoto.png", "Images/Countries/PakistaniPhoto.png",
+                "Images/Countries/PhilippinesPhoto.png", "Images/Countries/PortugalPhoto.png",
+                "Images/Countries/UKPhoto.png", "Images/Countries/USAPhoto.png"
             };
 
             // Shuffle the image paths
@@ -76,7 +76,7 @@ namespace Clue.MemoryMatch // Ensure namespace matches XAML's x:Class
             {
                 var image = new Image
                 {
-                    Source = new BitmapImage(new Uri(imagePath, UriKind.Absolute)),
+                    Source = new BitmapImage(new Uri(imagePath, UriKind.Relative)),
                     Stretch = Stretch.Uniform
                 };
                 clickedButton.Content = image;

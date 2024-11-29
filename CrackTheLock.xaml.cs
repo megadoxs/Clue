@@ -12,16 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Clue.CrackTheLock
+namespace Clue
 {
     /// <summary>
     /// Interaction logic for CrackTheLock.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CrackTheLock : Window
     {
         private readonly int[] _lockCombination = { 3, 0, 1 };
         private int _hintIndex = 2; // Track which digit to hint next
-        public MainWindow()
+        public CrackTheLock()
         {
             InitializeComponent();
         }

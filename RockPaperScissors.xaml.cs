@@ -2,11 +2,11 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Clue.RockPaperScissors
+namespace Clue
 {
-    public partial class MainWindow : Window
+    public partial class RockPaperScissors : Window
     {
-        public MainWindow()
+        public RockPaperScissors()
         {
             InitializeComponent();
         }

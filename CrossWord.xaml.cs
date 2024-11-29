@@ -15,12 +15,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Clue.CrossWord
+namespace Clue
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CrossWord : Window
     {
         private List<KeyValuePair<string, Orientation>> list = new List<KeyValuePair<string, Orientation>>() {
             new KeyValuePair<string, Orientation>("barrier", Orientation.Horizontal),
@@ -41,7 +41,7 @@ namespace Clue.CrossWord
 
         private TextBlock focus = new TextBlock();
         private List<int> correct = new List<int>();
-        public MainWindow()
+        public CrossWord()
         {
             InitializeComponent();
             int[] x = new int[this.x.Count];
@@ -109,7 +109,7 @@ namespace Clue.CrossWord
                     textBlock.HorizontalAlignment = HorizontalAlignment.Stretch;
                     textBlock.TextAlignment = TextAlignment.Center;
                     textBlock.Tag = i.ToString();
-                    textBlock.MouseLeftButtonDown += MouseLeftButtonDown;
+                    textBlock.MouseLeftButtonDown += TextBlock_MouseLeftButtonDown;
 
                     border.Child = textBlock;
                     CrossWordsGrid.Children.Add(border);
@@ -263,7 +263,7 @@ namespace Clue.CrossWord
             }
         }
 
-        private void MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             focus = (TextBlock)sender;
         }

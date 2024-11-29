@@ -13,15 +13,15 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Clue.FindWaldo
+namespace Clue
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class FindWaldo : Window
     {
         private List<int> found = new List<int>();
-        public MainWindow()
+        public FindWaldo()
         {
             InitializeComponent();
         }

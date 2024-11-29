@@ -288,7 +288,9 @@
     <Resource Include="Images\Check.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\PuzzleBackground.png" />
+    <Content Include="Images\PuzzleBackground.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Countries\CanadaPhoto.png" />

@@ -1,4 +1,4 @@
-﻿<Window x:Class="Clue.SlidingPuzzle.MainWindow"
+﻿<Window x:Class="Clue.SlidingPuzzle"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Sliding Puzzle" Height="400" Width="400">

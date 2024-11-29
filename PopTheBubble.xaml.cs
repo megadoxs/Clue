@@ -13,12 +13,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
-namespace Clue.PopTheBubble
+namespace Clue
 {
     /// <summary>
     /// Interaction logic for PopTheBubble.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PopTheBubble : Window
     {
         DispatcherTimer gameTimer = new DispatcherTimer(); // create a new instance of the dispatcher timer called gameTimer
 
@@ -41,7 +41,7 @@ namespace Clue.PopTheBubble
         // colour for the circles
         Brush brush;
 
-        public MainWindow()
+        public PopTheBubble()
         {
             InitializeComponent();
 

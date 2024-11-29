@@ -5,19 +5,19 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace Clue.SlidingPuzzle
+namespace Clue
 {
-    public partial class MainWindow : Window
+    public partial class SlidingPuzzle : Window
     {
         private Button[,] buttons = new Button[3, 3]; // 3x3 array for the buttons
         private int emptyRow = 2, emptyCol = 2; // Position of the empty slot
         private int moves = 0; // Counter for moves
         private BitmapImage sourceImage; // The full image
 
-        public MainWindow()
+        public SlidingPuzzle()
         {
             InitializeComponent();
-            sourceImage = new BitmapImage(new Uri("C:\\Users\\chris\\source\\repos\\Clue\\Images\\PuzzleBackground.png", UriKind.Relative)); // Ensure the image is in the project and set as 'Content'
+            sourceImage = new BitmapImage(new Uri("Images/PuzzleBackground.png", UriKind.Relative)); // Ensure the image is in the project and set as 'Content'
             InitializePuzzle();
         }
 
@@ -60,7 +60,7 @@ namespace Clue.SlidingPuzzle
 
         private ImageBrush CreateImageBrush(int value, int gridSize)
         {
-            int pieceSize = (int)sourceImage.PixelWidth / gridSize;
+            int pieceSize = (int)sourceImage.PixelWidth / gridSize; //gives an error
             int row = (value - 1) / gridSize;
             int col = (value - 1) % gridSize;
 

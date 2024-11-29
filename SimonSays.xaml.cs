@@ -13,19 +13,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Clue.SimonSays
+namespace Clue
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SimonSays : Window
     {
         private bool displaying;
         private int slevel = 0;
         private int[] sequence = new int[10]; // 0 = red, 1 = blue, 2 = green, 3 = yellow
         private List<int> userSequence = new List<int>();
 
-        public MainWindow()
+        public SimonSays()
         {
             InitializeComponent();
 
