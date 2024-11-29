@@ -54,6 +54,7 @@ namespace Clue // Ensure namespace matches XAML's x:Class
                     Tag = imagePaths[i] // Store the image path in the button's Tag property
                 };
 
+                button.Focusable = false;
                 button.Click += Button_Click;
                 CardGrid.Children.Add(button);
             }
