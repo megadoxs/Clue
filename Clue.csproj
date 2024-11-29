@@ -115,6 +115,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CrackTheLock.xaml.cs">
+      <DependentUpon>CrackTheLock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MemoryMatch.xaml.cs">
       <DependentUpon>MemoryMatch.xaml</DependentUpon>
     </Compile>
@@ -127,6 +130,10 @@
     <Compile Include="World.xaml.cs">
       <DependentUpon>World.xaml</DependentUpon>
     </Compile>
+    <Page Include="CrackTheLock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
