@@ -9,7 +9,7 @@ namespace Clue
 {
     public class Card
     {
-        public static BitmapImage CardsBack = new BitmapImage(new Uri("Images/Cards/cardsBack.png", UriKind.Relative));
+        public static BitmapImage CardsBack = new BitmapImage(new Uri("pack://application:,,,/Images/Cards/cardsBack.png"));
         public string name { get; set; }
         public BitmapImage image { get; set; }
 

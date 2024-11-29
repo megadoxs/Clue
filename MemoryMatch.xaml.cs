@@ -29,15 +29,15 @@ namespace Clue // Ensure namespace matches XAML's x:Class
             // Create a list of image paths (8 pairs - example paths)
             imagePaths = new List<string>
             {
-                "Images/Countries/CanadaPhoto.png", "Images/Countries/FREEPALESTINE.png",
-                "Images/Countries/NorwayPhoto.png", "Images/Countries/PakistaniPhoto.png",
-                "Images/Countries/PhilippinesPhoto.png", "Images/Countries/PortugalPhoto.png",
-                "Images/Countries/UKPhoto.png", "Images/Countries/USAPhoto.png",
+                "pack://application:,,,/Images/Countries/CanadaPhoto.png", "pack://application:,,,/Images/Countries/FREEPALESTINE.png",
+                "pack://application:,,,/Images/Countries/NorwayPhoto.png", "pack://application:,,,/Images/Countries/PakistaniPhoto.png",
+                "pack://application:,,,/Images/Countries/PhilippinesPhoto.png", "pack://application:,,,/Images/Countries/PortugalPhoto.png",
+                "pack://application:,,,/Images/Countries/UKPhoto.png", "pack://application:,,,/Images/Countries/USAPhoto.png",
 
-                "Images/Countries/CanadaPhoto.png", "Images/Countries/FREEPALESTINE.png",
-                "Images/Countries/NorwayPhoto.png", "Images/Countries/PakistaniPhoto.png",
-                "Images/Countries/PhilippinesPhoto.png", "Images/Countries/PortugalPhoto.png",
-                "Images/Countries/UKPhoto.png", "Images/Countries/USAPhoto.png"
+                "pack://application:,,,/Images/Countries/CanadaPhoto.png", "pack://application:,,,/Images/Countries/FREEPALESTINE.png",
+                "pack://application:,,,/Images/Countries/NorwayPhoto.png", "pack://application:,,,/Images/Countries/PakistaniPhoto.png",
+                "pack://application:,,,/Images/Countries/PhilippinesPhoto.png", "pack://application:,,,/Images/Countries/PortugalPhoto.png",
+                "pack://application:,,,/Images/Countries/UKPhoto.png", "pack://application:,,,/Images/Countries/USAPhoto.png"
             };
 
             // Shuffle the image paths
@@ -76,7 +76,7 @@ namespace Clue // Ensure namespace matches XAML's x:Class
             {
                 var image = new Image
                 {
-                    Source = new BitmapImage(new Uri(imagePath, UriKind.Relative)),
+                    Source = new BitmapImage(new Uri(imagePath)),
                     Stretch = Stretch.Uniform
                 };
                 clickedButton.Content = image;

@@ -11,7 +11,7 @@
         Icon="Images/clue.ico">
 
     <Window.Background>
-        <ImageBrush ImageSource="Images\clueBackground.png" />
+        <ImageBrush ImageSource="pack://application:,,,/Images\clueBackground.png" />
     </Window.Background>
     
     <Grid>

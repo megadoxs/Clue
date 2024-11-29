@@ -46,31 +46,31 @@ namespace Clue
             InitializeComponent();
 
             //Characters
-            AvailableCharacters.Add(new Card("Green", new BitmapImage(new Uri("Images/Cards/Characters/green.png", UriKind.Relative)), Card.Type.Character));
-            AvailableCharacters.Add(new Card("Mustard", new BitmapImage(new Uri("Images/Cards/Characters/mustard.png", UriKind.Relative)), Card.Type.Character));
-            AvailableCharacters.Add(new Card("Peacock", new BitmapImage(new Uri("Images/Cards/Characters/peacock.png", UriKind.Relative)), Card.Type.Character));
-            AvailableCharacters.Add(new Card("Plum", new BitmapImage(new Uri("Images/Cards/Characters/plum.png", UriKind.Relative)), Card.Type.Character));
-            AvailableCharacters.Add(new Card("Scarlet", new BitmapImage(new Uri("Images/Cards/Characters/scarlet.png", UriKind.Relative)), Card.Type.Character));
-            AvailableCharacters.Add(new Card("White", new BitmapImage(new Uri("Images/Cards/Characters/white.png", UriKind.Relative)), Card.Type.Character));
+            AvailableCharacters.Add(new Card("Green", new BitmapImage(new Uri("pack://application:,,,/Images/Cards/Characters/green.png")), Card.Type.Character));
+            AvailableCharacters.Add(new Card("Mustard", new BitmapImage(new Uri("pack://application:,,,/Images/Cards/Characters/mustard.png")), Card.Type.Character));
+            AvailableCharacters.Add(new Card("Peacock", new BitmapImage(new Uri("pack://application:,,,/Images/Cards/Characters/peacock.png")), Card.Type.Character));
+            AvailableCharacters.Add(new Card("Plum", new BitmapImage(new Uri("pack://application:,,,/Images/Cards/Characters/plum.png")), Card.Type.Character));
+            AvailableCharacters.Add(new Card("Scarlet", new BitmapImage(new Uri("pack://application:,,,/Images/Cards/Characters/scarlet.png")), Card.Type.Character));
+            AvailableCharacters.Add(new Card("White", new BitmapImage(new Uri("pack://application:,,,/Images/Cards/Characters/white.png")), Card.Type.Character));
 
             //Weapons
-            AvailableWeapons.Add(new Card("Candlestick", new BitmapImage(new Uri("Images/Cards/Weapons/candlestick.png", UriKind.Relative)), Card.Type.Weapon));
-            AvailableWeapons.Add(new Card("Knife", new BitmapImage(new Uri("Images/Cards/Weapons/knife.png", UriKind.Relative)), Card.Type.Weapon));
-            AvailableWeapons.Add(new Card("Pipe", new BitmapImage(new Uri("Images/Cards/Weapons/pipe.png", UriKind.Relative)), Card.Type.Weapon));
-            AvailableWeapons.Add(new Card("Revolver", new BitmapImage(new Uri("Images/Cards/Weapons/revolver.png", UriKind.Relative)), Card.Type.Weapon));
-            AvailableWeapons.Add(new Card("Rope", new BitmapImage(new Uri("Images/Cards/Weapons/rope.png", UriKind.Relative)), Card.Type.Weapon));
-            AvailableWeapons.Add(new Card("Wrench", new BitmapImage(new Uri("Images/Cards/Weapons/wrench.png", UriKind.Relative)), Card.Type.Weapon));
+            AvailableWeapons.Add(new Card("Candlestick", new BitmapImage(new Uri("pack://application:,,,/Images/Cards/Weapons/candlestick.png")), Card.Type.Weapon));
+            AvailableWeapons.Add(new Card("Knife", new BitmapImage(new Uri("pack://application:,,,/Images/Cards/Weapons/knife.png")), Card.Type.Weapon));
+            AvailableWeapons.Add(new Card("Pipe", new BitmapImage(new Uri("pack://application:,,,/Images/Cards/Weapons/pipe.png")), Card.Type.Weapon));
+            AvailableWeapons.Add(new Card("Revolver", new BitmapImage(new Uri("pack://application:,,,/Images/Cards/Weapons/revolver.png")), Card.Type.Weapon));
+            AvailableWeapons.Add(new Card("Rope", new BitmapImage(new Uri("pack://application:,,,/Images/Cards/Weapons/rope.png")), Card.Type.Weapon));
+            AvailableWeapons.Add(new Card("Wrench", new BitmapImage(new Uri("pack://application:,,,/Images/Cards/Weapons/wrench.png")), Card.Type.Weapon));
 
             //Locations
-            AvailableLocations.Add(new Card("Ballroom", new BitmapImage(new Uri("Images/Cards/Locations/ballroom.png", UriKind.Relative)), Card.Type.Location));
-            AvailableLocations.Add(new Card("Billard Room", new BitmapImage(new Uri("Images/Cards/Locations/Billard.png", UriKind.Relative)), Card.Type.Location));
-            AvailableLocations.Add(new Card("Conservatory", new BitmapImage(new Uri("Images/Cards/Locations/Conservatory.png", UriKind.Relative)), Card.Type.Location));
-            AvailableLocations.Add(new Card("Dining Room", new BitmapImage(new Uri("Images/Cards/Locations/Dining.png", UriKind.Relative)), Card.Type.Location));
-            AvailableLocations.Add(new Card("Hall", new BitmapImage(new Uri("Images/Cards/Locations/hall.png", UriKind.Relative)), Card.Type.Location));
-            AvailableLocations.Add(new Card("Kitchen", new BitmapImage(new Uri("Images/Cards/Locations/kitchen.png", UriKind.Relative)), Card.Type.Location));
-            AvailableLocations.Add(new Card("Library", new BitmapImage(new Uri("Images/Cards/Locations/library.png", UriKind.Relative)), Card.Type.Location));
-            AvailableLocations.Add(new Card("Lounge", new BitmapImage(new Uri("Images/Cards/Locations/lounge.png", UriKind.Relative)), Card.Type.Location));
-            AvailableLocations.Add(new Card("Study", new BitmapImage(new Uri("Images/Cards/Locations/study.png", UriKind.Relative)), Card.Type.Location));
+            AvailableLocations.Add(new Card("Ballroom", new BitmapImage(new Uri("pack://application:,,,/Images/Cards/Locations/ballroom.png")), Card.Type.Location));
+            AvailableLocations.Add(new Card("Billard Room", new BitmapImage(new Uri("pack://application:,,,/Images/Cards/Locations/Billard.png")), Card.Type.Location));
+            AvailableLocations.Add(new Card("Conservatory", new BitmapImage(new Uri("pack://application:,,,/Images/Cards/Locations/Conservatory.png")), Card.Type.Location));
+            AvailableLocations.Add(new Card("Dining Room", new BitmapImage(new Uri("pack://application:,,,/Images/Cards/Locations/Dining.png")), Card.Type.Location));
+            AvailableLocations.Add(new Card("Hall", new BitmapImage(new Uri("pack://application:,,,/Images/Cards/Locations/hall.png")), Card.Type.Location));
+            AvailableLocations.Add(new Card("Kitchen", new BitmapImage(new Uri("pack://application:,,,/Images/Cards/Locations/kitchen.png")), Card.Type.Location));
+            AvailableLocations.Add(new Card("Library", new BitmapImage(new Uri("pack://application:,,,/Images/Cards/Locations/library.png")), Card.Type.Location));
+            AvailableLocations.Add(new Card("Lounge", new BitmapImage(new Uri("pack://application:,,,/Images/Cards/Locations/lounge.png")), Card.Type.Location));
+            AvailableLocations.Add(new Card("Study", new BitmapImage(new Uri("pack://application:,,,/Images/Cards/Locations/study.png")), Card.Type.Location));
 
             //Choses randomly the killer, the weapon, and the location
             var random = new Random();

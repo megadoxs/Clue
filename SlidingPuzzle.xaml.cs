@@ -17,7 +17,7 @@ namespace Clue
         public SlidingPuzzle()
         {
             InitializeComponent();
-            sourceImage = new BitmapImage(new Uri("Images/PuzzleBackground.png", UriKind.Relative)); // Ensure the image is in the project and set as 'Content'
+            sourceImage = new BitmapImage(new Uri("pack://application:,,,/Images/PuzzleBackground.png")); // Ensure the image is in the project and set as 'Content'
             InitializePuzzle();
         }
 

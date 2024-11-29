@@ -115,7 +115,7 @@
                     </StackPanel>
                 </Grid>
                 <Grid VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,50,50" Grid.Column="1">
-                    <Image Source="Images/Check.png" Width="50" Height="50" MouseLeftButtonDown="ConfirmGuess"></Image>
+                    <Image Source="pack://application:,,,/Images/Check.png" Width="50" Height="50" MouseLeftButtonDown="ConfirmGuess"></Image>
                     <Canvas Width="100" Height="100">
                         <Path Fill="Green">
                             <Path.Data>
@@ -148,7 +148,7 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Image VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="Images/Icon-round-Question_mark.png" Width="100" Height="100" Grid.Row="0" MouseLeftButtonDown="Image_TutoMouseDown" Margin="0,0,0,20"/>
+                    <Image VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="pack://application:,,,/Images/Icon-round-Question_mark.png" Width="100" Height="100" Grid.Row="0" MouseLeftButtonDown="Image_TutoMouseDown" Margin="0,0,0,20"/>
                     <Canvas Width="100" Height="100" Margin="0,0,0,20" Grid.Row="0">
                         <Path Fill="Black">
                             <Path.Data>
@@ -163,7 +163,7 @@
                             </Path.Data>
                         </Path>
                     </Canvas>
-                    <Image Source="Images/bag.png" Width="50" Height="50" MouseLeftButtonDown="OpenInventory" Margin="0,20,0,0" Grid.Row="2"></Image>
+                    <Image Source="pack://application:,,,/Images/bag.png" Width="50" Height="50" MouseLeftButtonDown="OpenInventory" Margin="0,20,0,0" Grid.Row="2"></Image>
                     <Canvas Width="100" Height="100" Margin="0,20,0,0" Grid.Row="2">
                         <Path Fill="Brown">
                             <Path.Data>
@@ -178,7 +178,7 @@
                             </Path.Data>
                         </Path>
                     </Canvas>
-                    <Image Source="Images/MagnifyingGlass.png" Width="50" Height="50" MouseLeftButtonDown="OpenGuess" Grid.Row="1"></Image>
+                    <Image Source="pack://application:,,,/Images/MagnifyingGlass.png" Width="50" Height="50" MouseLeftButtonDown="OpenGuess" Grid.Row="1"></Image>
                     <Canvas Width="100" Height="100" Grid.Row="1">
                         <Path Fill="Green">
                             <Path.Data>
@@ -223,12 +223,12 @@
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock TextAlignment="Center" Foreground="White" FontSize="40">You Lost!</TextBlock>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Image Source="Images/map.png" MouseDown="Image_MapMouseDown" Panel.ZIndex="100" Width="200" Height="200" Margin="0,0,20,0"/>
-                    <Image Source="Images/retry.png" MouseDown="Image_RetryMouseDown" Panel.ZIndex="100" Width="200" Height="200" Margin="20,0,0,0"/>
+                    <Image Source="pack://application:,,,/Images/map.png" MouseDown="Image_MapMouseDown" Panel.ZIndex="100" Width="200" Height="200" Margin="0,0,20,0"/>
+                    <Image Source="pack://application:,,,/Images/retry.png" MouseDown="Image_RetryMouseDown" Panel.ZIndex="100" Width="200" Height="200" Margin="20,0,0,0"/>
                 </StackPanel>
             </StackPanel>
         </Grid>
-        <Image x:Name="back" Visibility="Hidden" Source="Images/map.png" MouseDown="Image_MapMouseDown" Panel.ZIndex="100" Width="200" Height="200" Margin="0,0,20,20" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <Image x:Name="back" Visibility="Hidden" Source="pack://application:,,,/Images/map.png" MouseDown="Image_MapMouseDown" Panel.ZIndex="100" Width="200" Height="200" Margin="0,0,20,20" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
         <UserControl>
             <Grid x:Name="win" Visibility="Hidden" Background="#40000000" Panel.ZIndex="99" MouseLeftButtonDown="GameEnd">
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
