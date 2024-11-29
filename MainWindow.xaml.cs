@@ -318,31 +318,31 @@ namespace Clue
             FocusManager.SetFocusedElement(this, null);
             switch (games[random.Next(0, games.Count)]) //games[random.Next(0, games.Count)]
             {
-                case 0:
+                case 1:
                     UserControl = CrackTheLock;
                     break;
-                case 1:
+                case 2:
                     UserControl = CrossWord;
                     break;
-                case 2:
+                case 3:
                     UserControl = FindWaldo;
                     break;
-                case 3:
+                case 4:
                     UserControl = MemoryMatch;
                     break;
-                case 4:
+                case 5:
                     UserControl = PopTheBubble;
                     break;
-                case 5:
+                case 6:
                     UserControl = RockPaperScissors;
                     break;
-                case 6:
+                case 7:
                     UserControl = SimonSays;
                     break;
-                case 7:
+                case 8:
                     UserControl = SlidingPuzzle;
                     break;
-                case 8:
+                case 9:
                     UserControl = Wordle;
                     break;
             }
