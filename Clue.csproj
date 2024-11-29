@@ -118,6 +118,9 @@
     <Compile Include="MemoryMatch.xaml.cs">
       <DependentUpon>MemoryMatch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SlidingPuzzle.xaml.cs">
+      <DependentUpon>SlidingPuzzle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StartUp.xaml.cs">
       <DependentUpon>StartUp.xaml</DependentUpon>
     </Compile>
@@ -138,6 +141,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MemoryMatch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SlidingPuzzle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -261,7 +268,9 @@
   <ItemGroup>
     <Resource Include="Images\Check.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\PuzzleBackground.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Countries\CanadaPhoto.png" />
     <Resource Include="Images\Countries\UKPhoto.png" />
