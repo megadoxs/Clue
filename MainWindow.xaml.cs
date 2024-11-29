@@ -235,6 +235,9 @@ namespace Clue
 
         private void ConfirmGuess(object sender, MouseButtonEventArgs e)
         {
+            if (Guess.Count != 3)
+                return;
+
             foreach (var card in Guess)
             {
                 if (!Answers.Contains(card))
