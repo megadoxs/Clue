@@ -29,8 +29,11 @@ namespace Clue
         public ObservableCollection<Card> AvailableWeapons { get; } = new ObservableCollection<Card>();
         public ObservableCollection<Card> Guess { get; set; } = new ObservableCollection<Card>();
         public ObservableCollection<Card> Answers { get; } = new ObservableCollection<Card>();
+        public ObservableCollection<Card> Unlocked { get; } = new ObservableCollection<Card>();
 
         public List<string> Countries = new List<string>();
+
+        private UserControl UserControl = null;
 
         public const int CharactersSize = 6;
         public const int WeaponsSize = 6;
@@ -253,9 +256,79 @@ namespace Clue
             MessageBox.Show("You Won");
         }
 
+        public void GameWin()
+        {
+            map.Focus();
+            Unlocked.Clear();
+            for (int i = 0; i < 2; i++)
+            {
+                Random random = new Random();
+                List<Card> cards = AvailableCharacters.Concat(AvailableLocations).Concat(AvailableWeapons).Except(Answers).Except(UserCards).ToList();
+                Card card = cards[random.Next(cards.Count)];
+                AddCard(card);
+                Unlocked.Add(card);
+
+            }
+            Won.Visibility = Visibility.Visible;
+        }
+
+        private void CloseWin(object sender, MouseButtonEventArgs e)
+        {
+            var pannel = sender as Grid;
+
+            if (e.OriginalSource == pannel)
+            {
+                Won.Visibility = Visibility.Hidden;
+                UserControl.Visibility = Visibility.Hidden;
+                lobby.Visibility = Visibility.Visible;
+            }
+        }
+
+        public void GameLose()
+        {
+            this.Focus();
+            lobby.Visibility = Visibility.Visible;
+            UserControl.Visibility = Visibility.Hidden;
+        }
+
         private void WorldMap_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show(((Path) sender).Tag.ToString());
+            //MessageBox.Show(((Path) sender).Tag.ToString());
+            lobby.Visibility = Visibility.Hidden;
+            Random random = new Random();
+
+            switch (random.Next(0, 9))
+            {
+                case 0:
+                    UserControl = CrackTheLock;
+                    break;
+                case 1:
+                    UserControl = CrossWord;
+                    break;
+                case 2:
+                    UserControl = FindWaldo;
+                    break;
+                case 3:
+                    UserControl = MemoryMatch;
+                    break;
+                case 4:
+                    UserControl = PopTheBubble;
+                    break;
+                case 5:
+                    UserControl = RockPaperScissors;
+                    break;
+                case 6:
+                    UserControl = SimonSays;
+                    break;
+                case 7:
+                    UserControl = SlidingPuzzle;
+                    break;
+                case 8:
+                    UserControl = Wordle;
+                    break;
+            }
+            UserControl.Visibility = Visibility.Visible;
+            UserControl.Focus();
         }
     }
 }

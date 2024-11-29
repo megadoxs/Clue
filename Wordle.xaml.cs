@@ -98,11 +98,19 @@ namespace Clue
                 tries++;
                 if (answer.Equals(new string(word.ToArray())))
                 {
-                    MessageBox.Show("You Won");
+                    MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                    if (mainWindow != null)
+                    {
+                        mainWindow.GameWin();
+                    }
                 }
                 else if (tries == 6)
                 {
-                    MessageBox.Show("You Lost");
+                    MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                    if (mainWindow != null)
+                    {
+                        mainWindow.GameLose();
+                    }
                 }
                 word.Clear();
             }

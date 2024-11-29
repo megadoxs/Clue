@@ -42,7 +42,11 @@ namespace Clue
             if (IsCorrect(playerGuess))
             {
                 FeedbackLabel.Text = "🎉 Correct! You unlocked the lock!";
-                MessageBox.Show("Congratulations, You cracked the code! Press \"OK\" to claim your cards!");
+                MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                if (mainWindow != null)
+                {
+                    mainWindow.GameWin();
+                }
             }
             else
             {

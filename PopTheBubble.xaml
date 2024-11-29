@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clue"
-        mc:Ignorable="d" Height="450" Width="800">
+        mc:Ignorable="d" Height="450" Width="800" GotFocus="UserControl_GotFocus" Focusable="True">
     <Canvas Name="MyCanvas" MouseLeftButtonDown="ClickOnCanvas" Background="#ADD8E6">
         <Label Name="txtScore" FontSize="20" FontWeight="Bold" Content="Score: 0" />
         <Label Name="txtLastScore" FontSize="20" FontWeight="Bold" Content="Get 25 to claim your cards!" Foreground="DarkBlue" Canvas.Left="124" />

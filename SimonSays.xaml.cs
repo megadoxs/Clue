@@ -93,14 +93,26 @@ namespace Clue
                 userSequence.Add(3);
 
             if (userSequence[userSequence.Count() - 1] != sequence[userSequence.Count() - 1])
-                userSequence.Clear();// remove when implement // losing system goes here
+            {
+                MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                if (mainWindow != null)
+                {
+                    mainWindow.GameLose();
+                }
+            }
             else if (userSequence.Count() != sequence.Length && userSequence.Count() == slevel)
             {
                 userSequence.Clear();
                 display_Sequence();
             }
             else if (userSequence.Count() == sequence.Length)
-                userSequence.Clear();// remove when implement // wining system goes here
+            {
+                MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                if (mainWindow != null)
+                {
+                    mainWindow.GameWin();
+                }
+            }
         }
     }
 }

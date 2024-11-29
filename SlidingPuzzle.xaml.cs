@@ -137,7 +137,12 @@ namespace Clue
                 }
             }
 
-            MessageBox.Show("Congratulations! You solved the puzzle! Press \"OK\" to claim your cards!", "Victory!!!");
+            //MessageBox.Show("Congratulations! You solved the puzzle! Press \"OK\" to claim your cards!", "Victory!!!");
+            MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.GameWin();
+            }
         }
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
