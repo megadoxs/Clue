@@ -239,7 +239,7 @@ namespace Clue
                     cheat = true;
                     foreach (var _ in CrossWordsGrid.Children)
                     {
-                        if (_ is Border item && Grid.GetColumn(item) == x && Grid.GetRow(item) == y && list[tag].Key[list[tag].Key.Length - 1] == char.Parse(((TextBlock)item.Child).Text.ToLower()))
+                        if (_ is Border item && Grid.GetColumn(item) == x && Grid.GetRow(item) == y && ((TextBlock)item.Child).Text.Length == 1 && list[tag].Key[list[tag].Key.Length - 1] == char.Parse(((TextBlock)item.Child).Text.ToLower()))
                         {
                             words[tag].Add(char.Parse(((TextBlock)item.Child).Text));
                             cheat = false;
