@@ -67,7 +67,7 @@ namespace Clue
             // Provide hint logic
             if (_hintIndex < _lockCombination.Length)
             {
-                FeedbackLabel.Text = $"Hint: It's the date that marks the beginning of Lent in \"Ash Wednesday Feast\" By Olga Tokarczuk";
+                FeedbackLabel.Text = $"Hint: It's the date that marks the beginning of Lent in \"Ash Wednesday Feast\"";
                 _hintIndex++;
             }
             else
