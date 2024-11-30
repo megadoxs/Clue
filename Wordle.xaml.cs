@@ -110,10 +110,70 @@ namespace Clue
                     if (mainWindow != null)
                     {
                         mainWindow.GameLose();
+                        this.ClearBoard();
+
                     }
                 }
                 word.Clear();
+
+
             }
         }
+        public void ClearBoard()
+        {
+            // Clear existing children
+            Guess.Children.Clear();
+            Guess.RowDefinitions.Clear();
+            Guess.ColumnDefinitions.Clear();
+
+            // Recreate the grid structure
+            for (int i = 0; i < 6; i++)
+            {
+                Guess.RowDefinitions.Add(new RowDefinition());
+            }
+
+            for (int i = 0; i < answer.Length; i++)
+            {
+                Guess.ColumnDefinitions.Add(new ColumnDefinition());
+            }
+
+            // Recreate cells with default appearance
+            for (int row = 0; row < 6; row++)
+            {
+                for (int col = 0; col < answer.Length; col++)
+                {
+                    Border border = new Border
+                    {
+                        Background = Brushes.White,
+                        BorderBrush = Brushes.Black,
+                        BorderThickness = new Thickness(1)
+                    };
+                    border.SetValue(Grid.RowProperty, row);
+                    border.SetValue(Grid.ColumnProperty, col);
+
+                    TextBlock textBlock = new TextBlock
+                    {
+                        Text = "",
+                        Foreground = Brushes.Black,
+                        FontSize = 50,
+                        VerticalAlignment = VerticalAlignment.Center,
+                        HorizontalAlignment = HorizontalAlignment.Stretch,
+                        TextAlignment = TextAlignment.Center
+                    };
+
+                    border.Child = textBlock;
+                    Guess.Children.Add(border);
+                }
+            }
+            word.Clear();
+            tries = 0;
+
+            Random random = new Random();
+            answer = answers[random.Next(answers.Count)];
+        }
+
+
+
+
     }
 }

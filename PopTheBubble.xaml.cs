@@ -141,6 +141,11 @@ namespace Clue
         private void GameOverFunction()
         {
             gameTimer.Stop();
+            // If the game is already completed (win or loss), exit the function
+            if (gameCompleted) return;
+
+            // Mark the game as completed
+            gameCompleted = true;
 
             if (score >= 25)
             {
@@ -150,6 +155,8 @@ namespace Clue
                 if (mainWindow != null)
                 {
                     mainWindow.GameWin();
+                    gameTimer.Stop();
+
                 }
             }
             else

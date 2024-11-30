@@ -141,7 +141,6 @@ namespace Clue // Ensure namespace matches XAML's x:Class
             {
                 mainWindow.GameWin();
             }
-            ResetGame();
         }
 
         private void ResetGame()
