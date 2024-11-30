@@ -199,5 +199,10 @@ namespace Clue
             gameCompleted = false;
             ResetGame();
         }
+
+        private void UserControl_LostFocus(object sender, RoutedEventArgs e)
+        {
+            gameTimer.Stop();
+        }
     }
 }

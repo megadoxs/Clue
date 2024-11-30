@@ -301,7 +301,7 @@ namespace Clue
 
         private void Image_MapMouseDown(object sender, MouseButtonEventArgs e)
         {
-            map.Focus();
+            FocusManager.SetFocusedElement(this, map);
             lobby.Visibility = Visibility.Visible;
             UserControl.Visibility = Visibility.Hidden;
             lost.Visibility = Visibility.Hidden;
