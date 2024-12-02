@@ -22,7 +22,7 @@ namespace Clue
     {
         private bool displaying;
         private int slevel = 0;
-        private int[] sequence = new int[4]; // 0 = red, 1 = blue, 2 = green, 3 = yellow
+        private int[] sequence = new int[6]; // 0 = red, 1 = blue, 2 = green, 3 = yellow
         private List<int> userSequence = new List<int>();
 
         public SimonSays()

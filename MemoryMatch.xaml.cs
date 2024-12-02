@@ -147,7 +147,7 @@ namespace Clue // Ensure namespace matches XAML's x:Class
         {
             CardGrid.Children.Clear();
             InitializeGame();
-            timeLeft = 10; // Reset the timer
+            timeLeft = 100; // Reset the timer
             TimerText.Text = "Time Left: 100";
             StartCountdown();
         }
